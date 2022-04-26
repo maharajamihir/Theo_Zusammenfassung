@@ -1,0 +1,13 @@
+#+TITLE: Einführung in die Theoretische Informatik Zusammenfassung
+
+* Formale Sprachen
+
+** Grundbegriffe
+- Alphabet $\Sigma$ (endliche Menge) z.B. $\{1,0\}$
+- Wort/String über $\Sigma$ ist eine endliche Folge von zeichen aus $\Sigma$
+- $|w|$ länge des Wortes $w$
+- Leeres Wort $\epsilon$
+- $uv$ konkatenation der Wörter $u$ und $w$
+- Ist $w$ ein Wort so ist $w^0 = \epsilon$ und $w^{n+1} = ww^n$
+- $\Sigma^*$ Menge aller Wörter über $\Sigma$
+- (formale) Sprache $L \subseteq \Sigma^*$
