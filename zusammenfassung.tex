@@ -1,0 +1,70 @@
+% Created 2022-04-27 Wed 14:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Ali, Mihir, Noah}
+\date{\today}
+\title{Einführung in die Theoretische Informatik Zusammenfassung}
+\hypersetup{
+ pdfauthor={Ali, Mihir, Noah},
+ pdftitle={Einführung in die Theoretische Informatik Zusammenfassung},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Formale Sprachen}
+\label{sec:org7032eb7}
+
+\subsection{Grundbegriffe}
+\label{sec:org4e26f8a}
+\begin{itemize}
+\item Alphabet \(\Sigma\) (endliche Menge) z.B. \(\{1,0\}\)
+\item Wort/String über \(\Sigma\) ist eine endliche Folge von zeichen aus \(\Sigma\)
+\item \(|w|\) länge des Wortes \(w\)
+\item Leeres Wort \(\epsilon\)
+\item \(uv\) konkatenation der Wörter \(u\) und \(w\)
+\item Ist \(w\) ein Wort so ist \(w^0 = \epsilon\) und \(w^{n+1} = ww^n\)
+\item \(\Sigma^*\) Menge aller Wörter über \(\Sigma\)
+\item (formale) Sprache \(L \subseteq \Sigma^*\)
+\end{itemize}
+
+\subsubsection{Operationen auf Sprachen}
+\label{sec:org3dd6785}
+Seien \(A,B \subseteq \Sigma^*\)
+\begin{itemize}
+\item Konkatenation:
+\end{itemize}
+\(AB = \{uv | u \in A \land v \in B \}\)
+\begin{itemize}
+\item Konkatenation mit sich selbst:
+\end{itemize}
+\(A^n = \{w_1 ... w_n | w_1, ... , w_n \in A\} = A ... A\)
+\begin{itemize}
+\item \(A^* = \{w_1...w_n | n \geq 0 \land w_1, ... , w_n \in A\} = \bigcup_{n\in \mathbb{N}} A^n\)
+\item \(A^+ = AA^* = \bigcup_{n \geq 1} A^n\)
+\end{itemize}
+\begin{enumerate}
+\item Sonderfälle:
+\label{sec:org51f5a34}
+\begin{itemize}
+\item \(\forall A: \epsilon \in A^*\)
+\item \(\emptyset^* = \{\epsilon\}\)
+\end{itemize}
+\end{enumerate}
+\end{document}

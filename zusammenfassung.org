@@ -1,4 +1,5 @@
 #+TITLE: Einführung in die Theoretische Informatik Zusammenfassung
+#+author: Ali, Mihir, Noah
 
 * Formale Sprachen
 
