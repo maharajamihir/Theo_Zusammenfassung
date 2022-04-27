@@ -11,3 +11,15 @@
 - Ist $w$ ein Wort so ist $w^0 = \epsilon$ und $w^{n+1} = ww^n$
 - $\Sigma^*$ Menge aller Wörter über $\Sigma$
 - (formale) Sprache $L \subseteq \Sigma^*$
+
+*** Operationen auf Sprachen
+Seien $A,B \subseteq \Sigma^*$
+- Konkatenation:
+$AB = \{uv | u \in A \land v \in B \}$
+- Konkatenation mit sich selbst:
+$A^n = \{w_1 ... w_n | w_1, ... , w_n \in A\} = A ... A$
+- $A^* = \{w_1...w_n | n \geq 0 \land w_1, ... , w_n \in A\} = \bigcup_{n\in \mathbb{N}} A^n$
+- $A^+ = AA^* = \bigcup_{n \geq 1} A^n$
+**** Sonderfälle:
+- $\forall A: \epsilon \in A^*$
+- $\emptyset^* = \{\epsilon\}$
