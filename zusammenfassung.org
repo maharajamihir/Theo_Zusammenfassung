@@ -5,7 +5,7 @@
 
 ** Grundbegriffe
 - Alphabet $\Sigma$ (endliche Menge) z.B. $\{1,0\}$
-- Wort/String über $\Sigma$ ist eine endliche Folge von zeichen aus $\Sigma$
+- Wort/String über $\Sigma$ ist eine endliche Folge von Zeichen aus $\Sigma$
 - $|w|$ länge des Wortes $w$
 - Leeres Wort $\epsilon$
 - $uv$ konkatenation der Wörter $u$ und $w$
@@ -24,3 +24,67 @@ $A^n = \{w_1 ... w_n | w_1, ... , w_n \in A\} = A ... A$
 **** Sonderfälle:
 - $\forall A: \epsilon \in A^*$
 - $\emptyset^* = \{\epsilon\}$
+- $\emptyset A = \emptyset$
+- $\{\epsilon \} A = A$
+- $A^*A^* = A^* = (A^*)^*$
+
+*** Grammatiken
+4-Tupel $G = (V,\Sigma,P,S)$
+- $V$ ist endliche Menge von Nichtterminalzeichen
+- $\Sigma$ ist endliche Menga von Terminalzeichen (= Alphabet)
+- $P \subseteq (V \cup \Sigma)^* \times (V \cup \Sigma)^*$ ist Menge von Produktionen
+- $S \in V$ ist das Startsymbol
+
+Die Sprache von G ist die Menge aller Wörter, die von G erzeugt werden. Sie wird mit $L(G)$ bezeichnet.
+Also jedes Wort, dass die Grammatik erzeugt muss in der Sprache erhalten sein und jedes Wort in der Sprache muss von der Grammatik erzeugt werden.
+**** Reflexve transitive Hülle
+
+- $\alpha \rightarrow^0_G \alpha$
+- $\alpha \rightarrow^{n+1}_G \gamma: \exists \beta. \alpha \rightarrow^n_G \rightarrow_G \gamma$
+- $\alpha \rightarrow^{*}_G \beta : \exists n. \alpha \rightarrow^n_G \beta$
+- $\alpha \rightarrow^{+}_G \beta: \exists n>0. \alpha \rightarrow^n_G \beta$
+
+*** Chomsky Hierarchie
+Eine Grammatik G ist vom
+- Typ 0 immer
+- Typ 1 falls fpr jede Produktion $\alpha \rightarrow \beta$ außer $S \rightarrow \epsilon$ gilt $|\alpha| \leq |\beta|$
+- Typ 2 Falls G vom typ 1 ist und für jede Produktion $\alpha \righarrow \beta$ gilt $\alpha \in V$
+- Typ 3 falls G vom Typ 2 ist und für jede Produktion $\alpha \rightarrow \beta$ außer $S \rightarrow \epsilon$ gilt $\beta \in \Sigma \cup \Sigma V$
+
+**** Grmmatiken und Sprachklassen:
+| Typ 3 | Rechtslineare Grammatiken  | Reguläre Sprachen             |
+| Typ 2 | Kontextfreie Grammatik     | Kontextfreie Sprachen         |
+| Typ 1 | Kontextsensitive Grammatik | Kontextsens. Sprachen         |
+| Typ 0 | Phrasenstrukturgrammatik   | Rekursiv aufzählbare Sprachen |
+
+**** Satz 2.13
+$L(Typ 3) \subset L(Typ 2) \subset L(Typ 1) \subset L(Typ 0)$
+
+*** Wortproblem
+Gegeben: eine Grammatik G, ein Wort $w \in \Sigma^*$
+Frage: Ist das Wort in w enthalten ($w \in L(G)$)?
+
+* Reguläre Sprachen
+
+#+CAPTION: Reguläre Sprachen Schema
+
+** Deterministische endliche Automaten
+#+CAPTION: Beispiel Automat
+
+- Beispiel:
+  - Eingabewort $baba \rightarrow$ Zustandsfolge 0,0,1,2,2
+- "Bei dieser Grammatik muss mindestens nach einem a ein b kommen"
+- Die Sprache des DFA ist die Menge aller Wörter über $\{a,b\}$, die ab enthalten
+
+Erkannte Sprache: Menge der Wörter, die vom Startzustand in einen Endzustand führen.
+Recognizer, die nur einmal das Wort durchläuft und in linearer Zeit es akzeptiert oder ablehnt.
+
+*** Definition
+Ein deterministischer endlicher Automat $M = (Q,\Sigma, \delta, q_0, F)$ besteht aus
+- endliche Menge von Zuständen Q
+- endlichem Eingabealphabet $\Sigma$
+- einer totalen Übergangsfunktion $\delta: Q \times \Sigma \rightarrow Q$
+- eienm Startzustand $q_0 \in Q$
+- einer Menge $F \subset Q$ von Endzuständen
+
+*** Akzeptierte Sprachen TODO (Definition 3.2)
