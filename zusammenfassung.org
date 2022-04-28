@@ -67,9 +67,11 @@ Frage: Ist das Wort in w enthalten ($w \in L(G)$)?
 * Reguläre Sprachen
 
 #+CAPTION: Reguläre Sprachen Schema
+[[./img/2-kapitel/reguläre_sprachen.png]]
 
 ** Deterministische endliche Automaten
 #+CAPTION: Beispiel Automat
+[[./img/2-kapitel/automat_bsp.png]]
 
 - Beispiel:
   - Eingabewort $baba \rightarrow$ Zustandsfolge 0,0,1,2,2
@@ -87,4 +89,10 @@ Ein deterministischer endlicher Automat $M = (Q,\Sigma, \delta, q_0, F)$ besteht
 - eienm Startzustand $q_0 \in Q$
 - einer Menge $F \subset Q$ von Endzuständen
 
-*** Akzeptierte Sprachen TODO (Definition 3.2)
+*** Akzeptierte Sprachen (Definition 3.2)
+Von M akzeptierte Sprache $L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in F\}$ wobei \\
+$\hat{\delta}: Q \times \Sigma^* \rightarrow Q$ induktiv definiert ist: \\
+$\hat{\delta}(q,\epsilon) = q$ \\
+$\hat{\delta}(q,aw) = \hat{\delta}(\delta(q,a),w)$, für $a \in \Sigma, w \in \Sigma^*$ \\
+($\hat{\delta}(q, w)$ bezeichnet den Zustand, den man aus $q$ mit $w$ erreicht.)\\
+Eine Sprache ist regulär *gdw* sie von einem DFA akzeptiert wird.
