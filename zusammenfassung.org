@@ -89,10 +89,72 @@ Ein deterministischer endlicher Automat $M = (Q,\Sigma, \delta, q_0, F)$ besteht
 - eienm Startzustand $q_0 \in Q$
 - einer Menge $F \subset Q$ von Endzuständen
 
-*** Akzeptierte Sprachen (Definition 3.2)
+**** Akzeptierte Sprachen (Definition 3.2)
 Von M akzeptierte Sprache $L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in F\}$ wobei \\
 $\hat{\delta}: Q \times \Sigma^* \rightarrow Q$ induktiv definiert ist: \\
 $\hat{\delta}(q,\epsilon) = q$ \\
 $\hat{\delta}(q,aw) = \hat{\delta}(\delta(q,a),w)$, für $a \in \Sigma, w \in \Sigma^*$ \\
 ($\hat{\delta}(q, w)$ bezeichnet den Zustand, den man aus $q$ mit $w$ erreicht.)\\
 Eine Sprache ist regulär *gdw* sie von einem DFA akzeptiert wird.
+
+**** Beispiel Automat der Sprache akzeptiert
+Induktiv beweisen pro Zustand.
+
+
+** Von rechtslinearen Grammatiken zu DFA
+- Für jede rechtslineare Grammatik $G$ gibt es einen DFA $M$ mit $L(M) = L(G)$
+- Für jeden DFA $M$ gibt es eine rechtslineare Grammatik $G$ mit $L(G) = L(M)$
+
+*** Nichtdeterministischer endlicher Automat
+Ein deterministischer endlicher Automat $M = (Q,\Sigma, \delta, q_0, F)$ besteht aus
+- $Q, \Sigma, q_0, F$ sind wie DFA
+- $\delta: Q \times \Sigma \rightarrow P(Q)$ \\
+  $P(Q)$ = Menge aller Teilmengen von $Q = 2^Q$ \\
+  Alternative: Relation $\delta \subseteq Q \times \Sigma \times Q$
+
+
+$\bar{\delta}(S,a) := \bigcup_{q \in S} \delta(q,a)$
+
+
+Es folgt: $\hat{\bar{\delta}}: P(Q) \times \Sigma^* \rightarrow P(Q)$
+
+**** Intuition:
+$\hat{\bar{\delta}}(S,w)$ ist Menge aller Zustände, die sich von einem Zustand in S aus $w$ erreichen lassen.
+
+**** Von nichtdeterminitsichen Automaten N akzeptierte Sprache
+$L(N) := \{w \in \Sigma^* | \hat{\bar{\delta}}(\{q_0\},w) \cap F \neq \emptyset\}$
+
+*** Satz 3.9
+Für jede rechtslineare Grammatik G gibt es einen NFA M mit $L(G) = L(M)$
+*** Satz 3.13
+Für jeden DFA M gibt es eine rechtslineare Grammatik G mit $L(M) = L(G)$
+
+** 3.3 NFAs mit $\epsilon$ -Übergängen
+Grammatiken von Programmiersprachen enthalten viele Produktionen der Gestalt $A \rightarrow B$.
+
+Ein NFA mit *$\epsilon$*-Übergängen (auch $\epsilon$ -NFA) ist ein NFA mit einem speziellen Symbol $\epsilon \not \in \Sigma$ und mit
+$\delta : Q \times (\Sigma \cup {\epsilon}) \rightarrow P(Q)$ .
+Ein $\epsilon$ übergang darf ausgef¨uhrt werden, ohne dass ein
+
+*** Lemma 3.16
+Für jeden $\epsilon$ -NFA $N$ gibt es einen NFA $N'$ mit $L(N) = L(N')$.
+
+** 3.4 Regex
+- $\emptyset$ ist ein regex
+- $\epsilon$ ist ein regex
+- Für jedes $a \in \Sigma$ ist a ein regulärer Audruck
+- Wenn $\alpha$ und $\beta$ regex dann auch
+  1. $\alpha \beta$
+  2. $\alpha | \beta$
+  3. $\alpha^*$
+- Sonst NIX!
+*** Definition 3.20
+Zu einem regulären Ausdruck $\gamma$ ist die zugehörige Sprache $L(\gamma)$ rekursiv definiert:
+- $L(\emptyset) =\emptyset$
+- $L(\epsilon) = \{\epsilon\}$
+- $L(a) = {a}$
+- $L(\alpha \beta) = L(\alpha)L(\beta))$
+- $L(\alpha | \beta) = L(\alpha) \cup L(\beta)$
+- $L(\alpha^*) = L(\alpha)^*$
+*** Satz 3.23 (Kleene 1956)
+Eine Sprache $L \subseteq \Sigma^*$ ist genau dann durch einen regulären
