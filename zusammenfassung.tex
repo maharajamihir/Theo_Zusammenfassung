@@ -1,4 +1,4 @@
-% Created 2022-05-09 Mon 15:14
+% Created 2022-05-09 Mon 16:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,10 +29,10 @@
 
 
 \section{Formale Sprachen}
-\label{sec:orga866d61}
+\label{sec:org8f45f83}
 
 \subsection{Grundbegriffe}
-\label{sec:orgb86186f}
+\label{sec:org32d27c2}
 \begin{itemize}
 \item Alphabet \(\Sigma\) (endliche Menge) z.B. \(\{1,0\}\)
 \item Wort/String über \(\Sigma\) ist eine endliche Folge von Zeichen aus \(\Sigma\)
@@ -45,7 +45,7 @@
 \end{itemize}
 
 \subsubsection{Operationen auf Sprachen}
-\label{sec:org0e151c4}
+\label{sec:org5b85979}
 Seien \(A,B \subseteq \Sigma^*\)
 \begin{itemize}
 \item Konkatenation:
@@ -61,7 +61,7 @@ Seien \(A,B \subseteq \Sigma^*\)
 \end{itemize}
 \begin{enumerate}
 \item Sonderfälle:
-\label{sec:orgd1235e2}
+\label{sec:orgcf7c80f}
 \begin{itemize}
 \item \(\forall A: \epsilon \in A^*\)
 \item \(\emptyset^* = \{\epsilon\}\)
@@ -72,7 +72,7 @@ Seien \(A,B \subseteq \Sigma^*\)
 \end{enumerate}
 
 \subsubsection{Grammatiken}
-\label{sec:org63d7a8a}
+\label{sec:orgd7fe6a6}
 4-Tupel \(G = (V,\Sigma,P,S)\)
 \begin{itemize}
 \item \(V\) ist endliche Menge von Nichtterminalzeichen
@@ -85,7 +85,7 @@ Die Sprache von G ist die Menge aller Wörter, die von G erzeugt werden. Sie wir
 Also jedes Wort, dass die Grammatik erzeugt muss in der Sprache erhalten sein und jedes Wort in der Sprache muss von der Grammatik erzeugt werden.
 \begin{enumerate}
 \item Reflexve transitive Hülle
-\label{sec:orga10de50}
+\label{sec:orgfbfda14}
 
 \begin{itemize}
 \item \(\alpha \rightarrow^0_G \alpha\)
@@ -96,7 +96,7 @@ Also jedes Wort, dass die Grammatik erzeugt muss in der Sprache erhalten sein un
 \end{enumerate}
 
 \subsubsection{Chomsky Hierarchie}
-\label{sec:orgaf0b8b9}
+\label{sec:org5b9b437}
 Eine Grammatik G ist vom
 \begin{itemize}
 \item Typ 0 immer
@@ -107,7 +107,7 @@ Eine Grammatik G ist vom
 
 \begin{enumerate}
 \item Grmmatiken und Sprachklassen:
-\label{sec:org1d25041}
+\label{sec:org2ba30de}
 \begin{center}
 \begin{tabular}{lll}
 Typ 3 & Rechtslineare Grammatiken & Reguläre Sprachen\\
@@ -118,17 +118,17 @@ Typ 0 & Phrasenstrukturgrammatik & Rekursiv aufzählbare Sprachen\\
 \end{center}
 
 \item Satz 2.13
-\label{sec:orge339053}
+\label{sec:org9d1360c}
 \(L(Typ 3) \subset L(Typ 2) \subset L(Typ 1) \subset L(Typ 0)\)
 \end{enumerate}
 
 \subsubsection{Wortproblem}
-\label{sec:orgb857fb9}
+\label{sec:org7713db1}
 Gegeben: eine Grammatik G, ein Wort \(w \in \Sigma^*\)
 Frage: Ist das Wort in w enthalten (\(w \in L(G)\))?
 
 \section{Reguläre Sprachen}
-\label{sec:orgddbe421}
+\label{sec:org3a7d200}
 
 \begin{figure}[htbp]
 \centering
@@ -137,7 +137,7 @@ Frage: Ist das Wort in w enthalten (\(w \in L(G)\))?
 \end{figure}
 
 \subsection{Deterministische endliche Automaten}
-\label{sec:orgc638d91}
+\label{sec:org0f9149c}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./img/2-kapitel/automat_bsp.png}
@@ -157,7 +157,7 @@ Erkannte Sprache: Menge der Wörter, die vom Startzustand in einen Endzustand f�
 Recognizer, die nur einmal das Wort durchläuft und in linearer Zeit es akzeptiert oder ablehnt.
 
 \subsubsection{Definition}
-\label{sec:orgc0d8968}
+\label{sec:org221eb44}
 Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) besteht aus
 \begin{itemize}
 \item endliche Menge von Zuständen Q
@@ -169,7 +169,7 @@ Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) beste
 
 \begin{enumerate}
 \item Akzeptierte Sprachen (Definition 3.2)
-\label{sec:org43316ee}
+\label{sec:orgbf86d98}
 Von M akzeptierte Sprache \(L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in F\}\) wobei \\
 \(\hat{\delta}: Q \times \Sigma^* \rightarrow Q\) induktiv definiert ist: \\
 \(\hat{\delta}(q,\epsilon) = q\) \\
@@ -178,20 +178,20 @@ Von M akzeptierte Sprache \(L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in 
 Eine Sprache ist regulär \textbf{gdw} sie von einem DFA akzeptiert wird.
 
 \item Beispiel Automat der Sprache akzeptiert
-\label{sec:org7ea597c}
+\label{sec:org196343d}
 Induktiv beweisen pro Zustand.
 \end{enumerate}
 
 
 \subsection{Von rechtslinearen Grammatiken zu DFA}
-\label{sec:orgb322ac0}
+\label{sec:orgc6c76fd}
 \begin{itemize}
 \item Für jede rechtslineare Grammatik \(G\) gibt es einen DFA \(M\) mit \(L(M) = L(G)\)
 \item Für jeden DFA \(M\) gibt es eine rechtslineare Grammatik \(G\) mit \(L(G) = L(M)\)
 \end{itemize}
 
 \subsubsection{Nichtdeterministischer endlicher Automat}
-\label{sec:org2ddafd2}
+\label{sec:orga6bb314}
 Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) besteht aus
 \begin{itemize}
 \item \(Q, \Sigma, q_0, F\) sind wie DFA
@@ -208,23 +208,23 @@ Es folgt: \(\hat{\bar{\delta}}: P(Q) \times \Sigma^* \rightarrow P(Q)\)
 
 \begin{enumerate}
 \item Intuition:
-\label{sec:orgcf780bd}
+\label{sec:orgcde91dc}
 \(\hat{\bar{\delta}}(S,w)\) ist Menge aller Zustände, die sich von einem Zustand in S aus \(w\) erreichen lassen.
 
 \item Von nichtdeterminitsichen Automaten N akzeptierte Sprache
-\label{sec:org398dca1}
+\label{sec:org06c7d91}
 \(L(N) := \{w \in \Sigma^* | \hat{\bar{\delta}}(\{q_0\},w) \cap F \neq \emptyset\}\)
 \end{enumerate}
 
 \subsubsection{Satz 3.9}
-\label{sec:orga96817c}
+\label{sec:org695b616}
 Für jede rechtslineare Grammatik G gibt es einen NFA M mit \(L(G) = L(M)\)
 \subsubsection{Satz 3.13}
-\label{sec:org80596ee}
+\label{sec:org10ec87a}
 Für jeden DFA M gibt es eine rechtslineare Grammatik G mit \(L(M) = L(G)\)
 
 \subsection{3.3 NFAs mit \(\epsilon\) -Übergängen}
-\label{sec:org263a4fa}
+\label{sec:orge54f1b3}
 Grammatiken von Programmiersprachen enthalten viele Produktionen der Gestalt \(A \rightarrow B\).
 
 Ein NFA mit \textbf{\(\epsilon\)}-Übergängen (auch \(\epsilon\) -NFA) ist ein NFA mit einem speziellen Symbol \(\epsilon \not \in \Sigma\) und mit
@@ -232,11 +232,11 @@ Ein NFA mit \textbf{\(\epsilon\)}-Übergängen (auch \(\epsilon\) -NFA) ist ein 
 Ein \(\epsilon\) übergang darf ausgef¨uhrt werden, ohne dass ein
 
 \subsubsection{Lemma 3.16}
-\label{sec:org136ab7a}
+\label{sec:org1aa6f12}
 Für jeden \(\epsilon\) -NFA \(N\) gibt es einen NFA \(N'\) mit \(L(N) = L(N')\).
 
 \subsection{3.4 Regex}
-\label{sec:org10fbb76}
+\label{sec:org9054055}
 \begin{itemize}
 \item \(\emptyset\) ist ein regex
 \item \(\epsilon\) ist ein regex
@@ -250,7 +250,7 @@ Für jeden \(\epsilon\) -NFA \(N\) gibt es einen NFA \(N'\) mit \(L(N) = L(N')\)
 \item Sonst NIX!
 \end{itemize}
 \subsubsection{Definition 3.20}
-\label{sec:orga4b0f21}
+\label{sec:org47e7123}
 Zu einem regulären Ausdruck \(\gamma\) ist die zugehörige Sprache \(L(\gamma)\) rekursiv definiert:
 \begin{itemize}
 \item \(L(\emptyset) =\emptyset\)
@@ -261,11 +261,11 @@ Zu einem regulären Ausdruck \(\gamma\) ist die zugehörige Sprache \(L(\gamma)\
 \item \(L(\alpha^*) = L(\alpha)^*\)
 \end{itemize}
 \subsubsection{Satz 3.23 (Kleene 1956)}
-\label{sec:orge3c8e63}
+\label{sec:org657a8b7}
 Eine Sprache \(L \subseteq \Sigma^*\) ist genau dann durch einen regulären Ausdruck darstellbar, wenn sie regulär ist.
 
 \subsubsection{Wie teuer sind unsere Konversionen?}
-\label{sec:orgdd5e11e}
+\label{sec:orgf1621cd}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/2-kapitel/konversionen.png}
 \end{center}
@@ -277,9 +277,9 @@ Eine Sprache \(L \subseteq \Sigma^*\) ist genau dann durch einen regulären Ausd
 \end{itemize}
 
 \subsection{Abschlusseigenschaften regulärer Sprachen}
-\label{sec:org716196e}
+\label{sec:org86d998b}
 \subsubsection{Satz 3.24}
-\label{sec:orgc45cf35}
+\label{sec:orgb2be9e9}
 Seien \(R,R_1, R_2 \subseteq \Sigma^*\) reguläre Sprachen. Dann sind auch
 \begin{itemize}
 \item \(R_1R_2\)
@@ -293,18 +293,18 @@ reguläre Sprachen
 
 \begin{enumerate}
 \item Produkt-Konstruktion
-\label{sec:org424eabf}
+\label{sec:orgfa16edf}
 Für den Schnitt ist die De-Morgan regel zu teuer also kann man auch eine Produkt Konstruktion ohne Umweg über De-Morgen benutzen.
 
 Das funktioniert über Parallelismus also beide DFAs laufen synchron parallel (kreuzprodukt der Zustandsräume).
 \end{enumerate}
 
 \subsection{Rechnen mit Regulären Ausdrücken}
-\label{sec:orgcc6212d}
+\label{sec:org252d267}
 \subsubsection{Definition 3.26}
-\label{sec:orge04428c}
+\label{sec:orgec031d8}
 Zwei reguläre Ausdrücke sind \textbf{äquivalent gdw} sie die gleiche Sprache darstellen:
 \(\alpha \equiv \beta: \Leftrightarrow L(\alpha) = L(\beta)\)
 
-by the way \(\equiv\) steht für Bedeutungsäquivalenz und \(=\) für syntaktische gleichheit
+(by the way \(\equiv\) steht für Bedeutungsäquivalenz und \(=\) für syntaktische gleichheit)
 \end{document}
