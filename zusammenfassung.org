@@ -157,4 +157,34 @@ Zu einem regulären Ausdruck $\gamma$ ist die zugehörige Sprache $L(\gamma)$ re
 - $L(\alpha | \beta) = L(\alpha) \cup L(\beta)$
 - $L(\alpha^*) = L(\alpha)^*$
 *** Satz 3.23 (Kleene 1956)
-Eine Sprache $L \subseteq \Sigma^*$ ist genau dann durch einen regulären
+Eine Sprache $L \subseteq \Sigma^*$ ist genau dann durch einen regulären Ausdruck darstellbar, wenn sie regulär ist.
+
+*** Wie teuer sind unsere Konversionen?
+[[./img/2-kapitel/konversionen.png]]
+- RE $\rightarrow \epsilon$ -NFA: RE der Länge n, $O(n)$ Zustände
+- $\epsilon$ -NFA $\rightarrow$ NFA: Q
+- NFA $\rightarrow$ DFA: $O(2^n)$
+- FA $\rightarrow$ RE: $O(n4^n)$
+
+** Abschlusseigenschaften regulärer Sprachen
+*** Satz 3.24
+Seien $R,R_1, R_2 \subseteq \Sigma^*$ reguläre Sprachen. Dann sind auch
+- $R_1R_2$
+- $R_1 \cup R_2$
+- $R^*$
+- $\bar{R} (:= \Sigma^* \backslash R)$
+- $R_1 \cup R_2$
+- $R_1 \backslash R_2$ \\
+reguläre Sprachen
+
+**** Produkt-Konstruktion
+Für den Schnitt ist die De-Morgan regel zu teuer also kann man auch eine Produkt Konstruktion ohne Umweg über De-Morgen benutzen.
+
+Das funktioniert über Parallelismus also beide DFAs laufen synchron parallel (kreuzprodukt der Zustandsräume).
+
+** Rechnen mit Regulären Ausdrücken
+*** Definition 3.26
+Zwei reguläre Ausdrücke sind *äquivalent gdw* sie die gleiche Sprache darstellen:
+$\alpha \equiv \beta: \Leftrightarrow L(\alpha) = L(\beta)$
+
+(by the way $\equiv$ steht für Bedeutungsäquivalenz und $=$ für syntaktische gleichheit)
