@@ -188,3 +188,31 @@ Zwei reguläre Ausdrücke sind *äquivalent gdw* sie die gleiche Sprache darstel
 $\alpha \equiv \beta: \Leftrightarrow L(\alpha) = L(\beta)$
 
 (by the way $\equiv$ steht für Bedeutungsäquivalenz und $=$ für syntaktische gleichheit)
+
+** Pumping Lemma
+Wie zeigt man, dass eine Sprache nicht regulär ist?
+*** Satz 3.32 (Pumping Lemma für Reguläre Sprachen)
+Sei $R \subseteq \Sigma^*$ regulär. Dann gibt es ein $n > 0$, so dass sich jedes $z \in R$ mit $|z| \geq n$ so in $z = uvw$ zerlegen lässt, dass
+- $v \neq \epsilon$,
+- $|uv| \leq n$
+- $\forall i \geq 0. uv^iw \in R$. \\
+
+Es gibt nicht-reguläre Sprachen, für die das Pumping-Lemma gilt!
+$\Rightarrow$ Pumping-Lemma hinreichend aber nicht notwendig um Nicht-Regularität zu zeigen.
+
+regulär  $\subset$ Pumping-Lemma gilt $\subset$ alle Sprachen
+
+** Entscheidungsverfahren
+
+*Eingabe:* Ein oder mehrere Objekte, die Reguläre Sprachen beschreiben (DFA, NFA, RE Typ3 Gram, ...)
+*Frage:* Haben die Sprachen die Eigenschaft X?
+Ein (Entscheidungs-)Problem ist entscheidbar, wenn es einen Algorithmus gibt, der bei jeder Eingabe in endlicher Zeit die richtige Antwort auf die Frage feststellt.
+
+Welche Entscheidungsprobleme sind für rechtslineare Grammatiken entscheidbar und wie hängt die Laufzeit mit der Beschreibung zusammen.
+
+*** Definition 3.37
+Sei D ein DFA, NFA, RE, rechtslineare Grammatik ...
+- *Wortproblem*: Gegeben $w$ und D: gilt $w \in L(D)$
+- *Leerheitsproblem*: Gegeben D: gilt $\emptyset = L(D)$
+- *Endlichkeitsproblem*: Gegeben D: isz $L(D)$ endlich
+- *Äquivalenzproblem*: Gegeben $D_1, D_2$, gilt $L(D_1) = L(D_2)$
