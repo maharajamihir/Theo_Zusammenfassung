@@ -162,7 +162,31 @@ Eine Sprache $L \subseteq \Sigma^*$ ist genau dann durch einen regulären Ausdru
 \smallindent
 $R^{k+1}_{ij} = R^k_{ij} \cup R^k_{i(k+1)}(R^k_{(k+1)(k+1)})^*R^k_{(k+1)j}$ /in regex $\cup = |$/\\
 $R^{k+1}_{ij}$ = alle Wörter die in $R^k_{ij}$ sind plus alle Wörter die mindestens einmal $q_{k+1}$ besuchen
-Somit gilt %L(M) = L(\alpha^n_{1i_1} | ... | \alpha^n_{1i_r})$, wobei $F=\{i_1, ..., i_r\}$
+Somit gilt $L(M) = L(\alpha^n_{1i_1} | ... | \alpha^n_{1i_r})$, wobei $F=\{i_1, ..., i_r\}$
+
+
+*** Wie teuer sind unsere Konversionen?
+[[./img/2-kapitel/konversionen.png]]
+- RE $\rightarrow \epsilon$ -NFA: RE der Länge n, $O(n)$ Zustände
+- $\epsilon$ -NFA $\rightarrow$ NFA: Q
+- NFA $\rightarrow$ DFA: $O(2^n)$
+- FA $\rightarrow$ RE: $O(n4^n)$
+
+** Abschlusseigenschaften regulärer Sprachen
+*** Satz 3.24
+Seien $R,R_1, R_2 \subseteq \Sigma^*$ reguläre Sprachen. Dann sind auch
+- $R_1R_2$
+- $R_1 \cup R_2$
+- $R^*$
+- $\bar{R} (:= \Sigma^* \backslash R)$
+- $R_1 \cup R_2$
+- $R_1 \backslash R_2$ \\
+reguläre Sprachen
+
+**** Produkt-Konstruktion
+Für den Schnitt ist die De-Morgan regel zu teuer also kann man auch eine Produkt Konstruktion ohne Umweg über De-Morgen benutzen.
+
+Das funktioniert über Parallelismus also beide DFAs laufen synchron parallel (kreuzprodukt der Zustandsräume).
 
 *** Satz 3.24 Abschlusseigenschaften regulärer Sprachen
 Seien $R. R_1,R_2 \subseteq \sum^*$ reguläre Sprachen. Dann sind auch
@@ -172,6 +196,12 @@ $R_1R_2, R_1 \cup R_2, R^k, \bar{R} (:= \sum^* \backslash R), R_1 \cap R_2, R_1 
 Sind $M_1 = (Q_1, \sum,\delta_1,s_1,F_1)$ und $M_2 = (Q_2,\sum,\delta_2,s_s, F_2)$ DFAs, dann ist der *Produkt-Automat*\\
 \indent\indent\indent\indent $M := (Q_1 \times Q_2, \sum, \delta, (s_1,s_2), F_1 \times F_2)$ \\
 \indent\indent\indent\indent $\delta((q_1,q_2), a) := (\delta_1(q_1, a), \delta_2(q_2, a))$
+** Rechnen mit Regulären Ausdrücken
+*** Definition 3.26
+Zwei reguläre Ausdrücke sind *äquivalent gdw* sie die gleiche Sprache darstellen:
+$\alpha \equiv \beta: \Leftrightarrow L(\alpha) = L(\beta)$
+
+(by the way $\equiv$ steht für Bedeutungsäquivalenz und $=$ für syntaktische gleichheit)
 
 *** Lemma 3.27
 - $\emptyset | \alpha \equiv \alpha | \emptyset \equiv \alpha$
@@ -187,3 +217,31 @@ Sind $M_1 = (Q_1, \sum,\delta_1,s_1,F_1)$ und $M_2 = (Q_2,\sum,\delta_2,s_s, F_2
   - $\alpha(\beta | \gamma) \equiv \alpha\beta | \alhpa\gamma$
   - $(\alpha | \beta)\gamma \equiv \alpha\gamma | \beta\gamma$
 - Idempotenz: $\alpha | \alpha \equiv \alpha$
+
+** Pumping Lemma
+Wie zeigt man, dass eine Sprache nicht regulär ist?
+*** Satz 3.32 (Pumping Lemma für Reguläre Sprachen)
+Sei $R \subseteq \Sigma^*$ regulär. Dann gibt es ein $n > 0$, so dass sich jedes $z \in R$ mit $|z| \geq n$ so in $z = uvw$ zerlegen lässt, dass
+- $v \neq \epsilon$,
+- $|uv| \leq n$
+- $\forall i \geq 0. uv^iw \in R$. \\
+
+Es gibt nicht-reguläre Sprachen, für die das Pumping-Lemma gilt!
+$\Rightarrow$ Pumping-Lemma hinreichend aber nicht notwendig um Nicht-Regularität zu zeigen.
+
+regulär  $\subset$ Pumping-Lemma gilt $\subset$ alle Sprachen
+
+** Entscheidungsverfahren
+
+*Eingabe:* Ein oder mehrere Objekte, die Reguläre Sprachen beschreiben (DFA, NFA, RE Typ3 Gram, ...)
+*Frage:* Haben die Sprachen die Eigenschaft X?
+Ein (Entscheidungs-)Problem ist entscheidbar, wenn es einen Algorithmus gibt, der bei jeder Eingabe in endlicher Zeit die richtige Antwort auf die Frage feststellt.
+
+Welche Entscheidungsprobleme sind für rechtslineare Grammatiken entscheidbar und wie hängt die Laufzeit mit der Beschreibung zusammen.
+
+*** Definition 3.37
+Sei D ein DFA, NFA, RE, rechtslineare Grammatik ...
+- *Wortproblem*: Gegeben $w$ und D: gilt $w \in L(D)$
+- *Leerheitsproblem*: Gegeben D: gilt $\emptyset = L(D)$
+- *Endlichkeitsproblem*: Gegeben D: isz $L(D)$ endlich
+- *Äquivalenzproblem*: Gegeben $D_1, D_2$, gilt $L(D_1) = L(D_2)$
