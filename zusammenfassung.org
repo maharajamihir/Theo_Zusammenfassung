@@ -245,3 +245,6 @@ Sei D ein DFA, NFA, RE, rechtslineare Grammatik ...
 - *Leerheitsproblem*: Gegeben D: gilt $\emptyset = L(D)$
 - *Endlichkeitsproblem*: Gegeben D: isz $L(D)$ endlich
 - *Äquivalenzproblem*: Gegeben $D_1, D_2$, gilt $L(D_1) = L(D_2)$
+
+** Automaten und Gleichungssysteme
+Wir werden jetzt aus einem Automat ein Gleichungssystem machen um daraus einen RE zu machen.
