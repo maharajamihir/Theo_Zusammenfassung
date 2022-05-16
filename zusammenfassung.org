@@ -248,3 +248,17 @@ Sei D ein DFA, NFA, RE, rechtslineare Grammatik ...
 
 ** Automaten und Gleichungssysteme
 Wir werden jetzt aus einem Automat ein Gleichungssystem machen um daraus einen RE zu machen.
+
+*** Ardens Lemma (Satz 3.47)
+Sind A, B und X Sprachen mit $\epsilon \not \in A$, so gilt
+$X = AX \cup B \Rightarrow X = A^*B$
+*** Korollar 3.48
+Sind $\alpha, \beta$ und X reguläre Ausdrücke mit $\epsilon \not \in L(\alpha)$, so gilt
+$X \equiv  \alpha X|\beta \Rightarrow X \equiv \alpha^*\beta$
+*** Algorithmus um RE aus Automat zu machen
+
+1. Wandle FA mit n Zuständen in ein System von n Gleichungen
+2. Löse das System durch schrittweise Elimination von Variablen mit Hilfe von Ardens Lemma für REs (Korollar 3.48).
+3. Ist k der Startzustand, so beschreibt X_k die vom Automaten akzeptierte Sprache.
+
+** Minimierung endlicher Automaten
