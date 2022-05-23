@@ -262,3 +262,31 @@ $X \equiv  \alpha X|\beta \Rightarrow X \equiv \alpha^*\beta$
 3. Ist k der Startzustand, so beschreibt X_k die vom Automaten akzeptierte Sprache.
 
 ** Minimierung endlicher Automaten
+*TODO MIA*
+
+** Äquivalenztest von DFAs
+Zwei Automaten sind genau äquivalent wenn:
+1. Gegeben DFAs $M1$ und $M2$, bilde disjunkte Vereiningung. \\
+   (”Male M1 und M2 nebeneinander.“)
+2. Berechne Menge der äquivalenten Zustände.
+3. L(M1) = L(M2) gdw die beiden Startzustände äquivalent sind
+
+** Äquivalenz von Zuständen
+Zwei Zustände sind äquivalent wenn sie selbe Sprache akzeptieren.
+
+
+** Minimalität des Quotientenautomaten
+
+Die Residualsprache von L bzgl $w \in \Sigma^*$ ist die Menge:
+
+$L^w := \{z \in \Sigma^* | wz \in L\}$
+
+$L' \subseteq \Sigma^*$ ist Residualsprache von L wenn es $w$ gibt mit $L' = L^w$
+
+*** Definition 3.55 (Äquivalenz von Wörtern bzgl. L)
+(Intuition: Zwei Wörter sind äquivalent wenn sie die gleiche Residualsprache haben.)
+
+*zwei Wörter sind äquivalent gdw sie zu den gleichen Zuständen führen*
+
+*** Satz 3.56
+Sei M ein DFA ohne unerreichbare Zustände. Der Quotientenautomat $M / \equiv$ ist ein minimaler DFA für $L(M)$.
