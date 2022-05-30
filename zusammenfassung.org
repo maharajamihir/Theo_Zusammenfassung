@@ -290,3 +290,42 @@ $L' \subseteq \Sigma^*$ ist Residualsprache von L wenn es $w$ gibt mit $L' = L^w
 
 *** Satz 3.56
 Sei M ein DFA ohne unerreichbare Zustände. Der Quotientenautomat $M / \equiv$ ist ein minimaler DFA für $L(M)$.
+
+** Definition 3.57 (Kanonischer Minimalautomat)
+$M_L := (R_L, \Sigma, \delta_L, L, F_L)$
+mit $\delta_L(R, a) := R^a$ und $F_L := {R \in RL | \varepsilon \in R}$.
+$\delta_L$ ist wohldefiniert und $\hat{\delta}}_L(R, w) = R^w$. Jeder Zustand $R$ erkennt
+die Sprache $R$ und somit $L(M_L) = L$.
+*** Satz 3.58
+Jeder minimaler DFA für eine reguläre Sprache L unterscheidet sich vom kanonischen Minimalautomaten M_L nur durch eine
+** Satz 3.59
+Eine Sprache $L \subseteq \Sigma^*$ ist genau dann regulär, wenn sie endlich viele Residualsprachen hat.
+
+* Kontextfreie Sprachen
+*** Syntaxbaum:
+Die Blätter des Baums, von links nach rechts gelesen,
+** Definition 4.2
+Eine kontextfreie Grammatik $G = (V, \Sigma, P, S)$ ist ein 4-Tupel: \\
+$V$ ist eine endlichen Menge, die Nichtterminalzeichen (oder Variablen), \\
+$\Sigma$ ist ein Alphabet, die Terminalzeichen, disjunkt von V ,
+$P \subseteq V \times (V \cup Σ´\Sigma)*$ eine endlichen Menge, die Produktionen, und \\
+$S \in V$ ist das Startsymbol.
+** Definition 4.4
+Eine kontextfreie Grammatik G = (V, Σ, P, S) induziert eine
+Ableitungsrelation →G auf W¨ortern ¨uber V ∪ Σ:
+α →G β
+gdw es eine Regel A → γ in P gibt, und W¨orter α1, α2, so dass
+α = α1Aα2
+und
+β = α1γα2
+Beispiel:
+a + T + a
+→G
+** Definition 4.5 (Reflexiv transitive Hülle)
+TODO
+** Definition 4.6 (Kontextfreie Sprache)
+TODO
+** Lemma 4.9 (Dekompositionslemma)
+$\alpha_1 \alpha_2 \rightarrow^n_G \beta$ \\
+$\Leftrightarrow$ \\
+$\exists \beta_1, \beta_2, n_1, n_2. \beta = \beta_1\beta_2 \land n = n_1 + n_2 \land \alpha_i \rightarrow^{n_i}_G \beta_i (i = 1, 2)$
