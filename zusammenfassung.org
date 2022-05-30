@@ -338,16 +338,16 @@ $\exists \beta_1, \beta_2, n_1, n_2. \beta = \beta_1\beta_2 \land n = n_1 + n_2 
 *** Präfix
 $u \preceq w \iff \exists v : uv = w$
 *** Anzahl an Vorkommnissen
-$#_a(w) :=$ Anzahl an $a$'s in $w$
-Seien $A(w) := #_[(w) \quad B(w) := #_](w)$
-$w\in \{[,]\}^*$ sei *balanciert* gdw
-1) $A(w) = B(w)
+$\#_a(w) :=$ Anzahl an $a$'s in $w$
+Seien $A(w) := \#_[(w) \quad B(w) := \#_](w)$
+$w\in \{\ [\ ,\ ]\ \}^*$ sei *balanciert* gdw
+1) $A(w) = B(w)$
 2) $\forall u \preceq w : A(u) \geq B(u)$
 *** 4,13
 Grammatik $S \rightarrow \epsilon\ |\ [S]\ |\ SS$ erzeugt genau die Menge der balancierten Wörter
 
 ** 4.15 Syntaxbaum
-Ein Syntaxbaum für $G = \{V, \sum, P, S)\} so dass gilt:
+Ein Syntaxbaum für $G = \{V, \sum, P, S)\}$ so dass gilt:
 - jedes Blatt mit einem Zeichen aus $\sum \cup \{\epsilon\}$ beschriftet ist
 - jeder innere Knoten mit einem $A\in V$ beschriftet ist, falls Nachfolger: als $X_1, ..., X_n \in V\cup \sum \cup \{\epsilon\}$ beschriftet. Dann ist $A \rightarrow X_1, ..., X_n$ eine Produktion in $P$
 - ein Blatt \epsilon der einzige Nachfolger seines Vorgänger ist
