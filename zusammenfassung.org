@@ -345,3 +345,33 @@ $w\in \{[,]\}^*$ sei *balanciert* gdw
 2) $\forall u \preceq w : A(u) \geq B(u)$
 *** 4,13
 Grammatik $S \rightarrow \epsilon\ |\ [S]\ |\ SS$ erzeugt genau die Menge der balancierten Wörter
+
+** 4.15 Syntaxbaum
+Ein Syntaxbaum für $G = \{V, \sum, P, S)\} so dass gilt:
+- jedes Blatt mit einem Zeichen aus $\sum \cup \{\epsilon\}$ beschriftet ist
+- jeder innere Knoten mit einem $A\in V$ beschriftet ist, falls Nachfolger: als $X_1, ..., X_n \in V\cup \sum \cup \{\epsilon\}$ beschriftet. Dann ist $A \rightarrow X_1, ..., X_n$ eine Produktion in $P$
+- ein Blatt \epsilon der einzige Nachfolger seines Vorgänger ist
+
+** 4.17 Äquivalente Bedingungen
+Für ein CFG & $w \in \sum^*$
+- $A\rightarrow_G^* w$
+- $w\in L_G(A)$ (gemäß der induktiven Definition)
+- Es gibt ein Syntaxbaum mit Wurzel A dessen *Rand* das Wort /w/ ist
+
+** 4.18
+Ein CFG heißt mehrdeutig $\iff$ es 2 *verschiedene* Syntaxbäume gibt die mit gleichem Rand \\
+Ein CFL L heißt inhärent mehrdeutig $\iff$ jede CFG G mit $L(G) = L$ mehrdeutig ist
+
+* Chomsky-Normalform
+** 4.21
+Ein CFG G ist in Chomsky-Normalform $\iff$ alle Produktionen eine der Formen:
+$\qquad A \rightarrow a\quad$ oder $\quad A\rightarrow BC\quad$ haben
+** 4.22
+Jede CFG G hat eine CFG $G'$ in Chomsky-Normalform mit $L(G') = L(G) \backslash \{\epsilon\}$
+Wenn man $\epsilon \in L(G')$ haben will: Füge am Ende $S' \rightarrow S, S\rightarrow \epsilon$ hinzu und setzte $S'$ als Startsymbol
+
+*** Bespiel 4.24
+$S \rightarrow AB,\quad A \rightarrow aAA|B,\quad B \rightarrow bBS|\epsilon$ \\
+$S \rightarrow A,\quad A \rightarrow \epsilon,\quad B \rightarrow bS$ \\
+$S \rightarrow B,\quad A \rightarrow aA,\quad S \rightarrow \epsilon,\quad A \rightarrow a$ \\
+$B \rightarrow bB,\quad B \rightarrow b$
