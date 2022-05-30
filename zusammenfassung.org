@@ -196,6 +196,7 @@ $R_1R_2, R_1 \cup R_2, R^k, \bar{R} (:= \sum^* \backslash R), R_1 \cap R_2, R_1 
 Sind $M_1 = (Q_1, \sum,\delta_1,s_1,F_1)$ und $M_2 = (Q_2,\sum,\delta_2,s_s, F_2)$ DFAs, dann ist der *Produkt-Automat*\\
 \indent\indent\indent\indent $M := (Q_1 \times Q_2, \sum, \delta, (s_1,s_2), F_1 \times F_2)$ \\
 \indent\indent\indent\indent $\delta((q_1,q_2), a) := (\delta_1(q_1, a), \delta_2(q_2, a))$
+
 ** Rechnen mit Regulären Ausdrücken
 *** Definition 3.26
 Zwei reguläre Ausdrücke sind *äquivalent gdw* sie die gleiche Sprache darstellen:
@@ -321,11 +322,26 @@ und
 Beispiel:
 a + T + a
 →G
+
 ** Definition 4.5 (Reflexiv transitive Hülle)
 TODO
+
 ** Definition 4.6 (Kontextfreie Sprache)
 TODO
+
 ** Lemma 4.9 (Dekompositionslemma)
 $\alpha_1 \alpha_2 \rightarrow^n_G \beta$ \\
 $\Leftrightarrow$ \\
 $\exists \beta_1, \beta_2, n_1, n_2. \beta = \beta_1\beta_2 \land n = n_1 + n_2 \land \alpha_i \rightarrow^{n_i}_G \beta_i (i = 1, 2)$
+
+** Definition 4.12 (Balancierte Klammerausdrücke)
+*** Präfix
+$u \preceq w \iff \exists v : uv = w$
+*** Anzahl an Vorkommnissen
+$#_a(w) :=$ Anzahl an $a$'s in $w$
+Seien $A(w) := #_[(w) \quad B(w) := #_](w)$
+$w\in \{[,]\}^*$ sei *balanciert* gdw
+1) $A(w) = B(w)
+2) $\forall u \preceq w : A(u) \geq B(u)$
+*** 4,13
+Grammatik $S \rightarrow \epsilon\ |\ [S]\ |\ SS$ erzeugt genau die Menge der balancierten Wörter
