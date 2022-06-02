@@ -399,3 +399,13 @@ $A \rightarrow aA_1...A_n$ ist.
 *** Satz 4.28
 Zu jeder CFG G gibt es eine CFG $G′$ in Greibach-Normalform mit \\
 $L(G') = L(G) \backslash \{\epsilon\}$.
+** Pumping Lemma für kontextfreie Sprachen
+Für jede kontextfreie Sprache L gibt es ein $n \geq 1$, so dass sich jedes Wort $z \in L$ mit $|z| \geq n$ zerlegen lässt in \\
+$z = uvwxy$, \\
+mit \\
+$vx \neq \epsilon$,
+$|vwx| \leq n$, und \\
+$\forall i \in \mathbb{N}. uv^iwx^iy \in L$.
+
+** Abschlusseigenschaften kontextfreie Sprachen
+*TODO*
