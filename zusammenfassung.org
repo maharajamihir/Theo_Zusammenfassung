@@ -363,22 +363,22 @@ Ein CFG heißt mehrdeutig $\iff$ es 2 *verschiedene* Syntaxbäume gibt die mit g
 Ein CFL L heißt inhärent mehrdeutig $\iff$ jede CFG G mit $L(G) = L$ mehrdeutig ist
 
 * Chomsky-Normalform
-** 4.21
+*** 4.21
 Ein CFG G ist in Chomsky-Normalform $\iff$ alle Produktionen eine der Formen:
 $\qquad A \rightarrow a\quad$ oder $\quad A\rightarrow BC\quad$ haben
-** 4.22
+*** 4.22
 Jede CFG G hat eine CFG $G'$ in Chomsky-Normalform mit $L(G') = L(G) \backslash \{\epsilon\}$
 Wenn man $\epsilon \in L(G')$ haben will: Füge am Ende $S' \rightarrow S, S\rightarrow \epsilon$ hinzu und setzte $S'$ als Startsymbol
 
-*** Bespiel 4.24
-$S \rightarrow AB,\quad A \rightarrow aAA|B,\quad B \rightarrow bBS|\epsilon$ \\
-$S \rightarrow A,\quad A \rightarrow \epsilon,\quad B \rightarrow bS$ \\
-$S \rightarrow B,\quad A \rightarrow aA,\quad S \rightarrow \epsilon,\quad A \rightarrow a$ \\
-$B \rightarrow bB,\quad B \rightarrow b$
+*** Beispiel mit Farben weil Noah immernoch nicht versteht
+[[./img/3-kapitel/chomskybsp.png]]
 
 $A\rightarrow B$ ist eine *Kettenproduktion*
 ** 4.25
 Aus jeder CFG G kann man ein CFG G' konstruieren was keine Kettenproduktionen enthält sodass gilt $L(G) = L(G')
+
+*** Beispiel Kettenproduktionen:
+[[./img/3-kapitel/chomskybsp2.png]]
 
 ** Konstruktion einer Chomsky-Normalform
 Eingabe: eine kontextfreie Grammatik $G = (V, \Sigma, P, S)$
@@ -401,10 +401,17 @@ Eingabe: eine kontextfreie Grammatik $G = (V, \Sigma, P, S)$
 Ein CFG ist in Greibach-Normalform falls alle Produktionen in der From sind: \\
 $A\rightarrow aA_1...A_n$
 
+*** Satz 4.28
+Zu jeder CFG G gibt es eine CFG $G′$ in Greibach-Normalform mit \\
+$L(G') = L(G) \backslash \{\epsilon\}$.
+
 ** Pumping Lemma für kontextfreie Sprachen
 Für jede kontextfreie Sprache L gibt es ein $n \ge 1$, so dass sich jedes Wort $z\in L$ mit $|z| \ge n$ sich zerlegen lässt in: \\
 $z = uvwxy$ \\
 mit
 - $vx \ne \epsilon$
-- $|vwx| \le n
+- $|vwx| \le n$
 - $\forall i \in \mathbb{N} : uv^iwx^iy\in L$
+
+** Abschlusseigenschaften kontextfreie Sprachen
+*TODO*
