@@ -189,12 +189,12 @@ Für den Schnitt ist die De-Morgan regel zu teuer also kann man auch eine Produk
 Das funktioniert über Parallelismus also beide DFAs laufen synchron parallel (kreuzprodukt der Zustandsräume).
 
 *** Satz 3.24 Abschlusseigenschaften regulärer Sprachen
-Seien $R. R_1,R_2 \subseteq \sum^*$ reguläre Sprachen. Dann sind auch
-$R_1R_2, R_1 \cup R_2, R^k, \bar{R} (:= \sum^* \backslash R), R_1 \cap R_2, R_1 \backslash R_2$ auch reguläre Sprachen
+Seien $R. R_1,R_2 \subseteq \Sigma^*$ reguläre Sprachen. Dann sind auch
+$R_1R_2, R_1 \cup R_2, R^k, \bar{R} (:= \Sigma^* \backslash R), R_1 \cap R_2, R_1 \backslash R_2$ auch reguläre Sprachen
 
 *** Satz 3.25
-Sind $M_1 = (Q_1, \sum,\delta_1,s_1,F_1)$ und $M_2 = (Q_2,\sum,\delta_2,s_s, F_2)$ DFAs, dann ist der *Produkt-Automat*\\
-\indent\indent\indent\indent $M := (Q_1 \times Q_2, \sum, \delta, (s_1,s_2), F_1 \times F_2)$ \\
+Sind $M_1 = (Q_1, \Sigma,\delta_1,s_1,F_1)$ und $M_2 = (Q_2,\Sigma,\delta_2,s_s, F_2)$ DFAs, dann ist der *Produkt-Automat*\\
+\indent\indent\indent\indent $M := (Q_1 \times Q_2, \Sigma, \delta, (s_1,s_2), F_1 \times F_2)$ \\
 \indent\indent\indent\indent $\delta((q_1,q_2), a) := (\delta_1(q_1, a), \delta_2(q_2, a))$
 
 ** Rechnen mit Regulären Ausdrücken
@@ -347,13 +347,13 @@ $w\in \{\ [\ ,\ ]\ \}^*$ sei *balanciert* gdw
 Grammatik $S \rightarrow \epsilon\ |\ [S]\ |\ SS$ erzeugt genau die Menge der balancierten Wörter
 
 ** 4.15 Syntaxbaum
-Ein Syntaxbaum für $G = \{V, \sum, P, S)\}$ so dass gilt:
-- jedes Blatt mit einem Zeichen aus $\sum \cup \{\epsilon\}$ beschriftet ist
-- jeder innere Knoten mit einem $A\in V$ beschriftet ist, falls Nachfolger: als $X_1, ..., X_n \in V\cup \sum \cup \{\epsilon\}$ beschriftet. Dann ist $A \rightarrow X_1, ..., X_n$ eine Produktion in $P$
+Ein Syntaxbaum für $G = \{V, \Sigma, P, S)\}$ so dass gilt:
+- jedes Blatt mit einem Zeichen aus $\Sigma \cup \{\epsilon\}$ beschriftet ist
+- jeder innere Knoten mit einem $A\in V$ beschriftet ist, falls Nachfolger: als $X_1, ..., X_n \in V\cup \Sigma \cup \{\epsilon\}$ beschriftet. Dann ist $A \rightarrow X_1, ..., X_n$ eine Produktion in $P$
 - ein Blatt \epsilon der einzige Nachfolger seines Vorgänger ist
 
 ** 4.17 Äquivalente Bedingungen
-Für ein CFG & $w \in \sum^*$
+Für ein CFG & $w \in \Sigma^*$
 - $A\rightarrow_G^* w$
 - $w\in L_G(A)$ (gemäß der induktiven Definition)
 - Es gibt ein Syntaxbaum mit Wurzel A dessen *Rand* das Wort /w/ ist
@@ -375,3 +375,36 @@ $S \rightarrow AB,\quad A \rightarrow aAA|B,\quad B \rightarrow bBS|\epsilon$ \\
 $S \rightarrow A,\quad A \rightarrow \epsilon,\quad B \rightarrow bS$ \\
 $S \rightarrow B,\quad A \rightarrow aA,\quad S \rightarrow \epsilon,\quad A \rightarrow a$ \\
 $B \rightarrow bB,\quad B \rightarrow b$
+
+$A\rightarrow B$ ist eine *Kettenproduktion*
+** 4.25
+Aus jeder CFG G kann man ein CFG G' konstruieren was keine Kettenproduktionen enthält sodass gilt $L(G) = L(G')
+
+** Konstruktion einer Chomsky-Normalform
+Eingabe: eine kontextfreie Grammatik $G = (V, \Sigma, P, S)$
+1) Für jedes $a\in \Sigma$ das in einer Produktion mit Länge $\ge$ 2 vorkommt:
+   - Füge ein neues Nichtterminal $X_a$ zu $V$ & ersetzt alle diese a's dadurch
+   - Füge $X_a \rightarrow a$ zu $P$ hinzu
+2) Ersetze Produktion in der Form: \\
+   #+BEGIN_CENTER
+   $A\rightarrow B_1B_2...B_k\quad (k\ge 3)$
+   #+END_CENTER
+   durch \\
+   #+BEGIN_CENTER
+   $A\rightarrow B_1C_2,\ C_2\rightarrow B_2C_3,\ ...,\ C_{k-1}\rightarrow B_{k-1}B_k$ \\
+   #+END_CENTER
+   wobei $C_2,\ ...,\ C_{k-1}$ neue Nichtterminale sind
+3) Elimniere alle $\epsilon$ -Produktionen
+4) Eliminiere alle Kettenproduktionen
+
+** 4.27 Greibach-Normalform
+Ein CFG ist in Greibach-Normalform falls alle Produktionen in der From sind: \\
+$A\rightarrow aA_1...A_n$
+
+** Pumping Lemma für kontextfreie Sprachen
+Für jede kontextfreie Sprache L gibt es ein $n \ge 1$, so dass sich jedes Wort $z\in L$ mit $|z| \ge n$ sich zerlegen lässt in: \\
+$z = uvwxy$ \\
+mit
+- $vx \ne \epsilon$
+- $|vwx| \le n
+- $\forall i \in \mathbb{N} : uv^iwx^iy\in L$
