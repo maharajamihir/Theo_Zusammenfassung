@@ -363,15 +363,39 @@ Ein CFG heißt mehrdeutig $\iff$ es 2 *verschiedene* Syntaxbäume gibt die mit g
 Ein CFL L heißt inhärent mehrdeutig $\iff$ jede CFG G mit $L(G) = L$ mehrdeutig ist
 
 * Chomsky-Normalform
-** 4.21
+*** 4.21
 Ein CFG G ist in Chomsky-Normalform $\iff$ alle Produktionen eine der Formen:
 $\qquad A \rightarrow a\quad$ oder $\quad A\rightarrow BC\quad$ haben
-** 4.22
+*** 4.22
 Jede CFG G hat eine CFG $G'$ in Chomsky-Normalform mit $L(G') = L(G) \backslash \{\epsilon\}$
 Wenn man $\epsilon \in L(G')$ haben will: Füge am Ende $S' \rightarrow S, S\rightarrow \epsilon$ hinzu und setzte $S'$ als Startsymbol
 
-*** Bespiel 4.24
+*** Beispiel 4.24 Epsilonproduktion
 $S \rightarrow AB,\quad A \rightarrow aAA|B,\quad B \rightarrow bBS|\epsilon$ \\
 $S \rightarrow A,\quad A \rightarrow \epsilon,\quad B \rightarrow bS$ \\
 $S \rightarrow B,\quad A \rightarrow aA,\quad S \rightarrow \epsilon,\quad A \rightarrow a$ \\
 $B \rightarrow bB,\quad B \rightarrow b$
+
+*** Beispiel mit Farben weil Noah immernoch nicht versteht
+[[./img/3-kapitel/chomskybsp.png]]
+
+*** 4.25
+Zu jeder CFG $G = (V, \Sigma, P, S)$ kann man eine CFG $G'$ konstruieren, die keine Kettenproduktionen enthält, so dass gilt \\
+$L(G') = L(G)$
+*** Beispiel Kettenproduktionen:
+[[./img/3-kapitel/chomskybsp2.png]]
+*** Konstruktion einer Chomsky Normalform
+1. Füge für jedes $a \in \Sigma$ das in einer rechten Seite der Länge $\geq 2$ vorkommt ein $X_a$ ein und füge $X_a \rightarrow a$ hinzu
+2. Ersetze jede Produktion der Form
+   $A \rightarrow B_1B_2 ... B_k \ (k \geq 3)$ \\
+   durch \\
+   $A \rightarrow B_1C_2, C_2 \rightarrow B_2C_3,...,C_{k-1} \rightarrow B_{k-1}B_k$
+3. Eliminiere alle $\epsilon$ -Produktionen.
+4. Eliminiere alle Kettenproduktionen.
+
+** Definition 4.27
+Eine CFG ist in Greibach-Normalform (benannt nach Sheila Greibach, UCLA), falls jede Produktion von der Form \\
+$A \rightarrow aA_1...A_n$ ist.
+*** Satz 4.28
+Zu jeder CFG G gibt es eine CFG $G′$ in Greibach-Normalform mit \\
+$L(G') = L(G) \backslash \{\epsilon\}$.
