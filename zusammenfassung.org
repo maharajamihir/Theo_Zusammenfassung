@@ -414,4 +414,41 @@ mit
 - $\forall i \in \mathbb{N} : uv^iwx^iy\in L$
 
 ** Abschlusseigenschaften kontextfreie Sprachen
-*TODO*
+Die Klasse der kontextfreien Sprachen ist also unter Vereinigung, Konkatenation, Stern und Spiegelung abgeschlossen. (Genau wie reguläre Sprachen)
+** Algorithmen für kontextfreie Grammatiken
+$G$ sei eine CFG
+Ein Symbol $X \in V \cup \Sigma$ ist
+- *nützlich* gdw es eine Ableitung $S \rightarrow^*_G w \in \Sigma^*$ gibt in der $X$ vorkommt.
+- *erzeugend* gdw es eine Ableitung X \rightarrow^*_G w \in \Sigma^*$ gibt.
+- *erreichbar* gdw es eine Ableitung $S \rightarrow^*_G \alpha X \beta$
+*** Satz 4.36
+Eliminiert man aus einer Grammatik $G$
+1. alle nicht erzeugenden Symbole, mit Resultat $G_1$, und
+2. aus $G_1$ alle unerreichbaren Symbole, mit Resultat $G_2$,
+
+dann enthält $G_2$ nur noch nützliche Symbole und $L(G_2) = L(G)$.
+
+*** Satz 4.37
+Die Menge der erzeugenden Symbole einer CFG sind berechenbar
+*** Satz 4.38
+Für eine CFG ist entscheidbar, ob $L(G) = \emptyset$
+*** Satz 4.40
+Die Menge der erreichbaren Symbole einer CFG ist berechenbar.
+
+** Der Cocke-Younger-Kasami-Algorithmus
+Der CYK-Algorithmus entscheidet das Wortproblem für kontextfreie Grammatiken in Chomsky-Normalform.
+Eingabe: Grammatik in Chomsky-Normalform,
+$w = a_1 ... a_n \in \Sigma^*$
+*** Definition 4.42
+V_{ij} := {A \in V | A \rightarrow^*_G a_i...a_j$ für $i \geq j$ \\
+Damit gilt: \\
+$w \in L(G) \iff S \in V_{1n}$
+*** Satz 4.44
+Der CYK-Algorithmus entscheidet das Wortproblem $w \in L(G)$ für eine fixe CFG G in Chomsky-Normalform in Zeit $O(|w|^3)$.
+
+*** Vorschau
+Für CFGs sind folgende Probleme nicht entscheidbar:
+- Äquivalenz: $L(G_1) = L(G_2)$?
+- Schnittproblem: $L(G_1) \cap L(G_2) = \emptyset$?
+- Regularität: $L(G)$ regulär?
+- Mehrdeutigkeit: Ist $G$ mehrdeutig?
