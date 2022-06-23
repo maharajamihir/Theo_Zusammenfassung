@@ -440,7 +440,7 @@ Der CYK-Algorithmus entscheidet das Wortproblem für kontextfreie Grammatiken in
 Eingabe: Grammatik in Chomsky-Normalform,
 $w = a_1 ... a_n \in \Sigma^*$
 *** Definition 4.42
-V_{ij} := {A \in V | A \rightarrow^*_G a_i...a_j$ für $i \geq j$ \\
+$V_{ij} := \{A \in V | A \rightarrow^*_G a_i...a_j\}$ für $i \geq j$ \\
 Damit gilt: \\
 $w \in L(G) \iff S \in V_{1n}$
 *** Satz 4.44
@@ -452,3 +452,86 @@ Für CFGs sind folgende Probleme nicht entscheidbar:
 - Schnittproblem: $L(G_1) \cap L(G_2) = \emptyset$?
 - Regularität: $L(G)$ regulär?
 - Mehrdeutigkeit: Ist $G$ mehrdeutig?
+
+** Kellerautomaten
+Ein (nichtdeterministischer) Kellerautomat \\
+$M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)$ besteht aus \\
+- einer endlichen Menge von Zuständen $Q$,
+- einem endlichen Eingabealphabet $\Sigma$,
+- einem endlichen Kelleralphabet $\Gamma$,
+- einem Anfangszustand $q_0$,
+- einem untersten Kellerzeichen $Z_0$,
+einer Übergangsfunktion $\delta: Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \rightarrow \mathcal{P}_e(Q \times \Gamma^*)$ , \\
+(Hierbei bedeutet $\mathcal{P}_e$ die Menge aller endlichen Teilmengen)
+- einer Menge $F \subseteq Q$ von Endzuständen.
+*** Spezialfälle
+- POP-Operation: $\alpha = \epsilon$
+  Das oberste kellerzeichen $Z$ wird entfernt.
+- PUSH-Operation: $\alpha = Z'Z$
+  Z′ wird als neues oberstes Kellerzeichen gePUSHt
+- $\epsilon$ -Übergang: $a = \epsilon$
+  Ohne Lesen eines Eingabezeichens.
+*** Definition 4.48
+- Ein PDA $M$ *akzeptiert* $w \in \Sigma^*$ mit *Endzustand* gdw \\
+  $(q_0, w, Z_0) \rightarrow^*_M (f, \epsilon, \gamma)$ für ein $f \in F, \gamma \in \Gamma^*$. \\
+
+  $L_F(M) := \{w | \exists f \in F, \gamma \in \Gamma^*. (q_0, w, Z_0) \rightarrow^*_M (f,\epsilon,\gamma)\}$
+
+- Ein PDA $M$ *akzeptiert* $w \in \Sigma^*$ *mit leerem Keller* gdw
+  $(q_0, w, Z_0) \rightarrow^*_M (q, \epsilon, \epsilon)$ für ein $q \in Q$. \\
+
+  $L_\epsilon(M) := \{w | \exists q \in Q. (q_0, w, Z_0) \rightarrow^*_M (q,\epsilon,\epsilon)\}$
+
+*** Satz 4.50 (Endzustand → leerer Keller)
+Zu jedem PDA $M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta)$ kann man in linearer \\
+Zeit einen PDA $M' = (Q', \Sigma, \Gamma', q'_0, Z'_0, \delta′)$ konstruieren mit \\
+$L_F(M) = L_\epsilon(M')$
+
+*** Satz 4.51 (Leerer Keller → Endzustand)
+Zu jedem PDA $M$ kann man in linearer Zeit einen PDA $M'$ konstruieren mit \\
+$L_\epsilon(M) = L_F(M')$
+
+*** Lemma 4.52 (Erweiterungslemma)
+$(q, u, \alpha) \rightarrow^n_M (q', u', \alpha') \implies (q, uv, \alpha \beta) \rightarrow^n_M (q', u'v, \alpha'\beta)$ \\
+Intuitiv: Man kann bei einem kellerautomaten unten beliebig viele elemente hinzufügen weil sie demnach eh nie gelesen werden.
+
+*** Zerlegungssatz
+Wenn $(q, w, Z_{1...k}) \rightarrow^n_M (q', \epsilon, \epsilon)$
+dann gibt es $u_i, p_i, n_i$, so dass
+$(p_{i−1}, u_i, Z_i) \rightarrow^{n_i}_M (p_i, \epsilon, \epsilon) (i = 1, . . . , k)$
+und $w = u_1 . . . u_k, p_0 = q, p_k = q', \sum n_i = n$.
+[[./img/3-kapitel/zerlegungssatz.png]]
+
+*** Satz 4.54 (CFG → PDA)
+Zu jeder CFG $G$ kann man einen PDA $M$ konstruieren, der mit leerem Stack akzeptiert, so dass $L_\epsilon(M) = L(G)$.
+*** Satz 4.57 (PDA → CFG)
+Zu jedem PDA $M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta)$, der mit leerem Keller
+akzeptiert, kann man eine CFG $G$ konstruieren mit $L(G) = L_\epsilon(M)$.
+*** Satz 4.59
+*Eine Sprache ist kontextfrei gdw sie von einem Kellerautomaten*
+
+** Deterministische Kellerautomaten
+*** Definition 4.60
+Ein PDA heißt deterministisch (DPDA) gdw für alle $q \in Q, a \in \Sigma, Z \in \Gamma$ \\
+$|\delta(q, a, Z)| + |\delta(q, \epsilon, Z)| \leq 1$
+*** Definition 4.62
+Eine CFL heißt deterministisch (DCFL) gdw sie von einem DPDA
+akzeptiert wird.
+*** Fakt 4.63
+Jede reguläre Sprache ist eine DCFL.
+*** Lemma 4.65
+$\exists$ DPDA $M. L = L_\epsilon(M)$ \\
+$\iff$ \\
+$\exists$ DPDA $M. L = L_F(M)$ und $L$ erfüllt die Präfix Bedingung
+*** Satz 4.66
+Die Klasse der DCFLs ist unter Komplement abgeschlossen. \\
+(CFLs sind nicht unter Komplement abgeschlossen)
+*** Lemma 4.68
+Die Klasse der DCFLs ist weder unter Schnitt noch unter
+Vereinigung abgeschlossen. \\
+(CFLs auch nicht)
+*** Lemma 4.69
+Jede DCFL ist nicht inhärent mehrdeutig, dh sie wird von einer
+nicht-mehrdeutigen Grammatik erzeugt.
+*** Satz 4.70
+Das Wortproblem für DCFLs ist in linearer Zeit lösbar.
