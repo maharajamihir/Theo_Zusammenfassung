@@ -1,4 +1,4 @@
-% Created 2022-06-09 Thu 17:35
+% Created 2022-06-23 Thu 17:12
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,10 +29,10 @@
 
 
 \section{Formale Sprachen}
-\label{sec:org34df31a}
+\label{sec:org027349c}
 
 \subsection{Grundbegriffe}
-\label{sec:org2b6c63c}
+\label{sec:org0d79b1f}
 \begin{itemize}
 \item Alphabet \(\Sigma\) (endliche Menge) z.B. \(\{1,0\}\)
 \item Wort/String über \(\Sigma\) ist eine endliche Folge von Zeichen aus \(\Sigma\)
@@ -45,7 +45,7 @@
 \end{itemize}
 
 \subsubsection{Operationen auf Sprachen}
-\label{sec:org8dd4fbe}
+\label{sec:org8bcdd5b}
 Seien \(A,B \subseteq \Sigma^*\)
 \begin{itemize}
 \item Konkatenation:
@@ -61,7 +61,7 @@ Seien \(A,B \subseteq \Sigma^*\)
 \end{itemize}
 \begin{enumerate}
 \item Sonderfälle:
-\label{sec:org6d9f786}
+\label{sec:org93c2fa2}
 \begin{itemize}
 \item \(\forall A: \epsilon \in A^*\)
 \item \(\emptyset^* = \{\epsilon\}\)
@@ -72,7 +72,7 @@ Seien \(A,B \subseteq \Sigma^*\)
 \end{enumerate}
 
 \subsubsection{Grammatiken}
-\label{sec:org46c95cc}
+\label{sec:org1e41910}
 4-Tupel \(G = (V,\Sigma,P,S)\)
 \begin{itemize}
 \item \(V\) ist endliche Menge von Nichtterminalzeichen
@@ -85,7 +85,7 @@ Die Sprache von G ist die Menge aller Wörter, die von G erzeugt werden. Sie wir
 Also jedes Wort, dass die Grammatik erzeugt muss in der Sprache erhalten sein und jedes Wort in der Sprache muss von der Grammatik erzeugt werden.
 \begin{enumerate}
 \item Reflexve transitive Hülle
-\label{sec:orgda960da}
+\label{sec:org4b7d4fd}
 
 \begin{itemize}
 \item \(\alpha \rightarrow^0_G \alpha\)
@@ -96,7 +96,7 @@ Also jedes Wort, dass die Grammatik erzeugt muss in der Sprache erhalten sein un
 \end{enumerate}
 
 \subsubsection{Chomsky Hierarchie}
-\label{sec:org0841dd4}
+\label{sec:org7350668}
 Eine Grammatik G ist vom
 \begin{itemize}
 \item Typ 0 immer
@@ -107,7 +107,7 @@ Eine Grammatik G ist vom
 
 \begin{enumerate}
 \item Grmmatiken und Sprachklassen:
-\label{sec:org776bb16}
+\label{sec:org619bbe0}
 \begin{center}
 \begin{tabular}{lll}
 Typ 3 & Rechtslineare Grammatiken & Reguläre Sprachen\\
@@ -118,17 +118,17 @@ Typ 0 & Phrasenstrukturgrammatik & Rekursiv aufzählbare Sprachen\\
 \end{center}
 
 \item Satz 2.13
-\label{sec:org9713596}
+\label{sec:org77dad68}
 \(L(Typ 3) \subset L(Typ 2) \subset L(Typ 1) \subset L(Typ 0)\)
 \end{enumerate}
 
 \subsubsection{Wortproblem}
-\label{sec:org1a34fde}
+\label{sec:org6e45b93}
 Gegeben: eine Grammatik G, ein Wort \(w \in \Sigma^*\)
 Frage: Ist das Wort in w enthalten (\(w \in L(G)\))?
 
 \section{Reguläre Sprachen}
-\label{sec:org4dbf42a}
+\label{sec:orge0acae2}
 
 \begin{figure}[htbp]
 \centering
@@ -137,7 +137,7 @@ Frage: Ist das Wort in w enthalten (\(w \in L(G)\))?
 \end{figure}
 
 \subsection{Deterministische endliche Automaten}
-\label{sec:org3a5d50b}
+\label{sec:org4cc5cad}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./img/2-kapitel/automat_bsp.png}
@@ -157,7 +157,7 @@ Erkannte Sprache: Menge der Wörter, die vom Startzustand in einen Endzustand f�
 Recognizer, die nur einmal das Wort durchläuft und in linearer Zeit es akzeptiert oder ablehnt.
 
 \subsubsection{Definition}
-\label{sec:orgb310b45}
+\label{sec:org374113c}
 Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) besteht aus
 \begin{itemize}
 \item endliche Menge von Zuständen Q
@@ -169,7 +169,7 @@ Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) beste
 
 \begin{enumerate}
 \item Akzeptierte Sprachen (Definition 3.2)
-\label{sec:org19ed369}
+\label{sec:orgd8812ff}
 Von M akzeptierte Sprache \(L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in F\}\) wobei \\
 \(\hat{\delta}: Q \times \Sigma^* \rightarrow Q\) induktiv definiert ist: \\
 \(\hat{\delta}(q,\epsilon) = q\) \\
@@ -178,20 +178,20 @@ Von M akzeptierte Sprache \(L(M) := \{w \in \Sigma^* | \hat{\delta}(q_0, w) \in 
 Eine Sprache ist regulär \textbf{gdw} sie von einem DFA akzeptiert wird.
 
 \item Beispiel Automat der Sprache akzeptiert
-\label{sec:org90fb277}
+\label{sec:org9d6c74d}
 Induktiv beweisen pro Zustand.
 \end{enumerate}
 
 
 \subsection{Von rechtslinearen Grammatiken zu DFA}
-\label{sec:orga47bb6e}
+\label{sec:orgaf489c8}
 \begin{itemize}
 \item Für jede rechtslineare Grammatik \(G\) gibt es einen DFA \(M\) mit \(L(M) = L(G)\)
 \item Für jeden DFA \(M\) gibt es eine rechtslineare Grammatik \(G\) mit \(L(G) = L(M)\)
 \end{itemize}
 
 \subsubsection{Nichtdeterministischer endlicher Automat}
-\label{sec:org8119e52}
+\label{sec:orgd547d76}
 Ein deterministischer endlicher Automat \(M = (Q,\Sigma, \delta, q_0, F)\) besteht aus
 \begin{itemize}
 \item \(Q, \Sigma, q_0, F\) sind wie DFA
@@ -208,23 +208,23 @@ Es folgt: \(\hat{\bar{\delta}}: P(Q) \times \Sigma^* \rightarrow P(Q)\)
 
 \begin{enumerate}
 \item Intuition:
-\label{sec:orga39d1f8}
+\label{sec:org16fde5f}
 \(\hat{\bar{\delta}}(S,w)\) ist Menge aller Zustände, die sich von einem Zustand in S aus \(w\) erreichen lassen.
 
 \item Von nichtdeterminitsichen Automaten N akzeptierte Sprache
-\label{sec:org0b75bf0}
+\label{sec:orge39cfe9}
 \(L(N) := \{w \in \Sigma^* | \hat{\bar{\delta}}(\{q_0\},w) \cap F \neq \emptyset\}\)
 \end{enumerate}
 
 \subsubsection{Satz 3.9}
-\label{sec:org5626e7c}
+\label{sec:org348115c}
 Für jede rechtslineare Grammatik G gibt es einen NFA M mit \(L(G) = L(M)\)
 \subsubsection{Satz 3.13}
-\label{sec:org13236f3}
+\label{sec:org9b51a29}
 Für jeden DFA M gibt es eine rechtslineare Grammatik G mit \(L(M) = L(G)\)
 
 \subsection{3.3 NFAs mit \(\epsilon\) -Übergängen}
-\label{sec:org168e181}
+\label{sec:org459af2b}
 Grammatiken von Programmiersprachen enthalten viele Produktionen der Gestalt \(A \rightarrow B\).
 
 Ein NFA mit \textbf{\(\epsilon\)}-Übergängen (auch \(\epsilon\) -NFA) ist ein NFA mit einem speziellen Symbol \(\epsilon \not \in \Sigma\) und mit
@@ -232,11 +232,11 @@ Ein NFA mit \textbf{\(\epsilon\)}-Übergängen (auch \(\epsilon\) -NFA) ist ein 
 Ein \(\epsilon\) übergang darf ausgef¨uhrt werden, ohne dass ein
 
 \subsubsection{Lemma 3.16}
-\label{sec:org2ea4971}
+\label{sec:orgd6da0e5}
 Für jeden \(\epsilon\) -NFA \(N\) gibt es einen NFA \(N'\) mit \(L(N) = L(N')\).
 
 \subsection{3.4 Regex}
-\label{sec:org0f0bb5b}
+\label{sec:org3875437}
 \begin{itemize}
 \item \(\emptyset\) ist ein regex
 \item \(\epsilon\) ist ein regex
@@ -250,7 +250,7 @@ Für jeden \(\epsilon\) -NFA \(N\) gibt es einen NFA \(N'\) mit \(L(N) = L(N')\)
 \item Sonst NIX!
 \end{itemize}
 \subsubsection{Definition 3.20}
-\label{sec:org8cb0869}
+\label{sec:org2460620}
 Zu einem regulären Ausdruck \(\gamma\) ist die zugehörige Sprache \(L(\gamma)\) rekursiv definiert:
 \begin{itemize}
 \item \(L(\emptyset) =\emptyset\)
@@ -262,7 +262,7 @@ Zu einem regulären Ausdruck \(\gamma\) ist die zugehörige Sprache \(L(\gamma)\
 \end{itemize}
 
 \subsubsection{Satz 3.23 (Kleene 1956)}
-\label{sec:org0155e6e}
+\label{sec:org36e794e}
 Eine Sprache \(L \subseteq \Sigma^*\) ist genau dann durch einen regulären Ausdruck darstellbar, wenn sie regulär ist.\\
 \smallindent
 \(R^{k+1}_{ij} = R^k_{ij} \cup R^k_{i(k+1)}(R^k_{(k+1)(k+1)})^*R^k_{(k+1)j}\) \emph{in regex \(\cup = |\)}\\
@@ -271,7 +271,7 @@ Somit gilt \(L(M) = L(\alpha^n_{1i_1} | ... | \alpha^n_{1i_r})\), wobei \(F=\{i_
 
 
 \subsubsection{Wie teuer sind unsere Konversionen?}
-\label{sec:org4de7fef}
+\label{sec:org1b19c88}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/2-kapitel/konversionen.png}
 \end{center}
@@ -283,9 +283,9 @@ Somit gilt \(L(M) = L(\alpha^n_{1i_1} | ... | \alpha^n_{1i_r})\), wobei \(F=\{i_
 \end{itemize}
 
 \subsection{Abschlusseigenschaften regulärer Sprachen}
-\label{sec:org22858fb}
+\label{sec:orgcec4bc8}
 \subsubsection{Satz 3.24}
-\label{sec:orgf2819b8}
+\label{sec:org0f556cc}
 Seien \(R,R_1, R_2 \subseteq \Sigma^*\) reguläre Sprachen. Dann sind auch
 \begin{itemize}
 \item \(R_1R_2\)
@@ -299,34 +299,34 @@ reguläre Sprachen
 
 \begin{enumerate}
 \item Produkt-Konstruktion
-\label{sec:org04542ea}
+\label{sec:org8c147aa}
 Für den Schnitt ist die De-Morgan regel zu teuer also kann man auch eine Produkt Konstruktion ohne Umweg über De-Morgen benutzen.
 
 Das funktioniert über Parallelismus also beide DFAs laufen synchron parallel (kreuzprodukt der Zustandsräume).
 \end{enumerate}
 
 \subsubsection{Satz 3.24 Abschlusseigenschaften regulärer Sprachen}
-\label{sec:org8b1ee48}
+\label{sec:org1dfb1e3}
 Seien \(R. R_1,R_2 \subseteq \Sigma^*\) reguläre Sprachen. Dann sind auch
 \(R_1R_2, R_1 \cup R_2, R^k, \bar{R} (:= \Sigma^* \backslash R), R_1 \cap R_2, R_1 \backslash R_2\) auch reguläre Sprachen
 
 \subsubsection{Satz 3.25}
-\label{sec:org7c2dd58}
+\label{sec:orgc66a018}
 Sind \(M_1 = (Q_1, \Sigma,\delta_1,s_1,F_1)\) und \(M_2 = (Q_2,\Sigma,\delta_2,s_s, F_2)\) DFAs, dann ist der \textbf{Produkt-Automat}\\
 \indent\indent\indent\indent \(M := (Q_1 \times Q_2, \Sigma, \delta, (s_1,s_2), F_1 \times F_2)\) \\
 \indent\indent\indent\indent \(\delta((q_1,q_2), a) := (\delta_1(q_1, a), \delta_2(q_2, a))\)
 
 \subsection{Rechnen mit Regulären Ausdrücken}
-\label{sec:orgfa39880}
+\label{sec:org3073155}
 \subsubsection{Definition 3.26}
-\label{sec:org91fa9e4}
+\label{sec:orgbf328fd}
 Zwei reguläre Ausdrücke sind \textbf{äquivalent gdw} sie die gleiche Sprache darstellen:
 \(\alpha \equiv \beta: \Leftrightarrow L(\alpha) = L(\beta)\)
 
 (by the way \(\equiv\) steht für Bedeutungsäquivalenz und \(=\) für syntaktische gleichheit)
 
 \subsubsection{Lemma 3.27}
-\label{sec:orgac15575}
+\label{sec:org1d79807}
 \begin{itemize}
 \item \(\emptyset | \alpha \equiv \alpha | \emptyset \equiv \alpha\)
 \item \(\emptyset \alpha \equiv \alpha\emptyset \equiv \emptyset\)
@@ -336,7 +336,7 @@ Zwei reguläre Ausdrücke sind \textbf{äquivalent gdw} sie die gleiche Sprache 
 \end{itemize}
 
 \subsubsection{Lemma 2.8}
-\label{sec:org3b636a4}
+\label{sec:org6db4d95}
 \begin{itemize}
 \item Assozitiviät
 \item Kommutativität
@@ -349,10 +349,10 @@ Zwei reguläre Ausdrücke sind \textbf{äquivalent gdw} sie die gleiche Sprache 
 \end{itemize}
 
 \subsection{Pumping Lemma}
-\label{sec:org806776e}
+\label{sec:org8abf3cd}
 Wie zeigt man, dass eine Sprache nicht regulär ist?
 \subsubsection{Satz 3.32 (Pumping Lemma für Reguläre Sprachen)}
-\label{sec:orge937547}
+\label{sec:org1e3ee56}
 Sei \(R \subseteq \Sigma^*\) regulär. Dann gibt es ein \(n > 0\), so dass sich jedes \(z \in R\) mit \(|z| \geq n\) so in \(z = uvw\) zerlegen lässt, dass
 \begin{itemize}
 \item \(v \neq \epsilon\),
@@ -366,7 +366,7 @@ Es gibt nicht-reguläre Sprachen, für die das Pumping-Lemma gilt!
 regulär  \(\subset\) Pumping-Lemma gilt \(\subset\) alle Sprachen
 
 \subsection{Entscheidungsverfahren}
-\label{sec:org684ea1d}
+\label{sec:org21bcb90}
 
 \textbf{Eingabe:} Ein oder mehrere Objekte, die Reguläre Sprachen beschreiben (DFA, NFA, RE Typ3 Gram, \ldots{})
 \textbf{Frage:} Haben die Sprachen die Eigenschaft X?
@@ -375,7 +375,7 @@ Ein (Entscheidungs-)Problem ist entscheidbar, wenn es einen Algorithmus gibt, de
 Welche Entscheidungsprobleme sind für rechtslineare Grammatiken entscheidbar und wie hängt die Laufzeit mit der Beschreibung zusammen.
 
 \subsubsection{Definition 3.37}
-\label{sec:orgaf9165b}
+\label{sec:org487e9d0}
 Sei D ein DFA, NFA, RE, rechtslineare Grammatik \ldots{}
 \begin{itemize}
 \item \textbf{Wortproblem}: Gegeben \(w\) und D: gilt \(w \in L(D)\)
@@ -385,19 +385,19 @@ Sei D ein DFA, NFA, RE, rechtslineare Grammatik \ldots{}
 \end{itemize}
 
 \subsection{Automaten und Gleichungssysteme}
-\label{sec:orgc5a58df}
+\label{sec:org8e5b1b0}
 Wir werden jetzt aus einem Automat ein Gleichungssystem machen um daraus einen RE zu machen.
 
 \subsubsection{Ardens Lemma (Satz 3.47)}
-\label{sec:orga67431f}
+\label{sec:orgcefd485}
 Sind A, B und X Sprachen mit \(\epsilon \not \in A\), so gilt
 \(X = AX \cup B \Rightarrow X = A^*B\)
 \subsubsection{Korollar 3.48}
-\label{sec:org8285997}
+\label{sec:orgb6b53a0}
 Sind \(\alpha, \beta\) und X reguläre Ausdrücke mit \(\epsilon \not \in L(\alpha)\), so gilt
 \(X \equiv  \alpha X|\beta \Rightarrow X \equiv \alpha^*\beta\)
 \subsubsection{Algorithmus um RE aus Automat zu machen}
-\label{sec:orgd96c06d}
+\label{sec:org78fd02a}
 
 \begin{enumerate}
 \item Wandle FA mit n Zuständen in ein System von n Gleichungen
@@ -406,11 +406,11 @@ Sind \(\alpha, \beta\) und X reguläre Ausdrücke mit \(\epsilon \not \in L(\alp
 \end{enumerate}
 
 \subsection{Minimierung endlicher Automaten}
-\label{sec:org771cca6}
+\label{sec:org94b7561}
 \textbf{TODO MIA}
 
 \subsection{Äquivalenztest von DFAs}
-\label{sec:org3beca56}
+\label{sec:org2969956}
 Zwei Automaten sind genau äquivalent wenn:
 \begin{enumerate}
 \item Gegeben DFAs \(M1\) und \(M2\), bilde disjunkte Vereiningung. \\
@@ -420,12 +420,12 @@ Zwei Automaten sind genau äquivalent wenn:
 \end{enumerate}
 
 \subsection{Äquivalenz von Zuständen}
-\label{sec:orgf53c5cf}
+\label{sec:orge0923fb}
 Zwei Zustände sind äquivalent wenn sie selbe Sprache akzeptieren.
 
 
 \subsection{Minimalität des Quotientenautomaten}
-\label{sec:org6801741}
+\label{sec:orgb350c99}
 
 Die Residualsprache von L bzgl \(w \in \Sigma^*\) ist die Menge:
 
@@ -434,42 +434,42 @@ Die Residualsprache von L bzgl \(w \in \Sigma^*\) ist die Menge:
 \(L' \subseteq \Sigma^*\) ist Residualsprache von L wenn es \(w\) gibt mit \(L' = L^w\)
 
 \subsubsection{Definition 3.55 (Äquivalenz von Wörtern bzgl. L)}
-\label{sec:orgcb86de7}
+\label{sec:org5fbe5ae}
 (Intuition: Zwei Wörter sind äquivalent wenn sie die gleiche Residualsprache haben.)
 
 \textbf{zwei Wörter sind äquivalent gdw sie zu den gleichen Zuständen führen}
 
 \subsubsection{Satz 3.56}
-\label{sec:orgf87bb5e}
+\label{sec:orgfa3343f}
 Sei M ein DFA ohne unerreichbare Zustände. Der Quotientenautomat \(M / \equiv\) ist ein minimaler DFA für \(L(M)\).
 
 \subsection{Definition 3.57 (Kanonischer Minimalautomat)}
-\label{sec:org3620a57}
+\label{sec:orgce0755d}
 \(M_L := (R_L, \Sigma, \delta_L, L, F_L)\)
 mit \(\delta_L(R, a) := R^a\) und \(F_L := {R \in RL | \varepsilon \in R}\).
 \(\delta_L\) ist wohldefiniert und \(\hat{\delta}}_L(R, w) = R^w\). Jeder Zustand \(R\) erkennt
 die Sprache \(R\) und somit \(L(M_L) = L\).
 \subsubsection{Satz 3.58}
-\label{sec:orgf282936}
+\label{sec:org761036d}
 Jeder minimaler DFA für eine reguläre Sprache L unterscheidet sich vom kanonischen Minimalautomaten M\textsubscript{L} nur durch eine
 \subsection{Satz 3.59}
-\label{sec:org6fcd8b1}
+\label{sec:org4429ef2}
 Eine Sprache \(L \subseteq \Sigma^*\) ist genau dann regulär, wenn sie endlich viele Residualsprachen hat.
 
 \section{Kontextfreie Sprachen}
-\label{sec:org0d32185}
+\label{sec:orga61e0fd}
 \subsubsection{Syntaxbaum:}
-\label{sec:orgb2de9dc}
+\label{sec:org7f886ef}
 Die Blätter des Baums, von links nach rechts gelesen,
 \subsection{Definition 4.2}
-\label{sec:org8e61692}
+\label{sec:orgfea75e4}
 Eine kontextfreie Grammatik \(G = (V, \Sigma, P, S)\) ist ein 4-Tupel: \\
 \(V\) ist eine endlichen Menge, die Nichtterminalzeichen (oder Variablen), \\
 \(\Sigma\) ist ein Alphabet, die Terminalzeichen, disjunkt von V ,
 \(P \subseteq V \times (V \cup Σ´\Sigma)*\) eine endlichen Menge, die Produktionen, und \\
 \(S \in V\) ist das Startsymbol.
 \subsection{Definition 4.4}
-\label{sec:orge284ae1}
+\label{sec:org3e2770f}
 Eine kontextfreie Grammatik G = (V, Σ, P, S) induziert eine
 Ableitungsrelation →G auf W¨ortern ¨uber V ∪ Σ:
 α →G β
@@ -482,26 +482,26 @@ a + T + a
 →G
 
 \subsection{Definition 4.5 (Reflexiv transitive Hülle)}
-\label{sec:orgc2f2782}
+\label{sec:org9cb768c}
 TODO
 
 \subsection{Definition 4.6 (Kontextfreie Sprache)}
-\label{sec:org87fed7e}
+\label{sec:orgff37a46}
 TODO
 
 \subsection{Lemma 4.9 (Dekompositionslemma)}
-\label{sec:orgc7c5040}
+\label{sec:org1586f35}
 \(\alpha_1 \alpha_2 \rightarrow^n_G \beta\) \\
 \(\Leftrightarrow\) \\
 \(\exists \beta_1, \beta_2, n_1, n_2. \beta = \beta_1\beta_2 \land n = n_1 + n_2 \land \alpha_i \rightarrow^{n_i}_G \beta_i (i = 1, 2)\)
 
 \subsection{Definition 4.12 (Balancierte Klammerausdrücke)}
-\label{sec:org148599b}
+\label{sec:orgb30a1dc}
 \subsubsection{Präfix}
-\label{sec:orgc207bb6}
+\label{sec:org9df42d7}
 \(u \preceq w \iff \exists v : uv = w\)
 \subsubsection{Anzahl an Vorkommnissen}
-\label{sec:org5c74967}
+\label{sec:org903f078}
 \(\#_a(w) :=\) Anzahl an \(a\)'s in \(w\)
 Seien \(A(w) := \#_[(w) \quad B(w) := \#_](w)\)
 \(w\in \{\ [\ ,\ ]\ \}^*\) sei \textbf{balanciert} gdw
@@ -510,11 +510,11 @@ Seien \(A(w) := \#_[(w) \quad B(w) := \#_](w)\)
 \item \(\forall u \preceq w : A(u) \geq B(u)\)
 \end{enumerate}
 \subsubsection{4,13}
-\label{sec:org1182d95}
+\label{sec:org581e420}
 Grammatik \(S \rightarrow \epsilon\ |\ [S]\ |\ SS\) erzeugt genau die Menge der balancierten Wörter
 
 \subsection{4.15 Syntaxbaum}
-\label{sec:org13cc0ad}
+\label{sec:org0839136}
 Ein Syntaxbaum für \(G = \{V, \Sigma, P, S)\}\) so dass gilt:
 \begin{itemize}
 \item jedes Blatt mit einem Zeichen aus \(\Sigma \cup \{\epsilon\}\) beschriftet ist
@@ -523,7 +523,7 @@ Ein Syntaxbaum für \(G = \{V, \Sigma, P, S)\}\) so dass gilt:
 \end{itemize}
 
 \subsection{4.17 Äquivalente Bedingungen}
-\label{sec:orgb916d92}
+\label{sec:orgff60ba7}
 Für ein CFG \& \(w \in \Sigma^*\)
 \begin{itemize}
 \item \(A\rightarrow_G^* w\)
@@ -532,40 +532,40 @@ Für ein CFG \& \(w \in \Sigma^*\)
 \end{itemize}
 
 \subsection{4.18}
-\label{sec:org9f9d39d}
+\label{sec:orge0d79da}
 Ein CFG heißt mehrdeutig \(\iff\) es 2 \textbf{verschiedene} Syntaxbäume gibt die mit gleichem Rand \\
 Ein CFL L heißt inhärent mehrdeutig \(\iff\) jede CFG G mit \(L(G) = L\) mehrdeutig ist
 
 \section{Chomsky-Normalform}
-\label{sec:orgd9a2aa7}
+\label{sec:org8456298}
 \subsubsection{4.21}
-\label{sec:org05b032d}
+\label{sec:orge92e2f8}
 Ein CFG G ist in Chomsky-Normalform \(\iff\) alle Produktionen eine der Formen:
 \(\qquad A \rightarrow a\quad\) oder \(\quad A\rightarrow BC\quad\) haben
 \subsubsection{4.22}
-\label{sec:org4f81294}
+\label{sec:orgf1fa605}
 Jede CFG G hat eine CFG \(G'\) in Chomsky-Normalform mit \(L(G') = L(G) \backslash \{\epsilon\}\)
 Wenn man \(\epsilon \in L(G')\) haben will: Füge am Ende \(S' \rightarrow S, S\rightarrow \epsilon\) hinzu und setzte \(S'\) als Startsymbol
 
 \subsubsection{Beispiel mit Farben weil Noah immernoch nicht versteht}
-\label{sec:orgd62b54c}
+\label{sec:org5c35481}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/3-kapitel/chomskybsp.png}
 \end{center}
 
 \(A\rightarrow B\) ist eine \textbf{Kettenproduktion}
 \subsection{4.25}
-\label{sec:orgd045c46}
+\label{sec:orga98bd9d}
 Aus jeder CFG G kann man ein CFG G' konstruieren was keine Kettenproduktionen enthält sodass gilt \$L(G) = L(G')
 
 \subsubsection{Beispiel Kettenproduktionen:}
-\label{sec:org8bc154f}
+\label{sec:org1940bbd}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/3-kapitel/chomskybsp2.png}
 \end{center}
 
 \subsection{Konstruktion einer Chomsky-Normalform}
-\label{sec:org1805ef7}
+\label{sec:org90f6a8b}
 Eingabe: eine kontextfreie Grammatik \(G = (V, \Sigma, P, S)\)
 \begin{enumerate}
 \item Für jedes \(a\in \Sigma\) das in einer Produktion mit Länge \(\ge\) 2 vorkommt:
@@ -587,17 +587,17 @@ wobei \(C_2,\ ...,\ C_{k-1}\) neue Nichtterminale sind
 \end{enumerate}
 
 \subsection{4.27 Greibach-Normalform}
-\label{sec:org463ef91}
+\label{sec:orgb9d875b}
 Ein CFG ist in Greibach-Normalform falls alle Produktionen in der From sind: \\
 \(A\rightarrow aA_1...A_n\)
 
 \subsubsection{Satz 4.28}
-\label{sec:orgcb08794}
+\label{sec:org9263f02}
 Zu jeder CFG G gibt es eine CFG \(G′\) in Greibach-Normalform mit \\
 \(L(G') = L(G) \backslash \{\epsilon\}\).
 
 \subsection{Pumping Lemma für kontextfreie Sprachen}
-\label{sec:org937e185}
+\label{sec:org9232baf}
 Für jede kontextfreie Sprache L gibt es ein \(n \ge 1\), so dass sich jedes Wort \(z\in L\) mit \(|z| \ge n\) sich zerlegen lässt in: \\
 \(z = uvwxy\) \\
 mit
@@ -608,10 +608,10 @@ mit
 \end{itemize}
 
 \subsection{Abschlusseigenschaften kontextfreie Sprachen}
-\label{sec:orgae09195}
+\label{sec:org25295f7}
 Die Klasse der kontextfreien Sprachen ist also unter Vereinigung, Konkatenation, Stern und Spiegelung abgeschlossen. (Genau wie reguläre Sprachen)
 \subsection{Algorithmen für kontextfreie Grammatiken}
-\label{sec:org2657741}
+\label{sec:orgf13abbe}
 \(G\) sei eine CFG
 Ein Symbol \(X \in V \cup \Sigma\) ist
 \begin{itemize}
@@ -620,7 +620,7 @@ Ein Symbol \(X \in V \cup \Sigma\) ist
 \item \textbf{erreichbar} gdw es eine Ableitung \(S \rightarrow^*_G \alpha X \beta\)
 \end{itemize}
 \subsubsection{Satz 4.36}
-\label{sec:org9e31004}
+\label{sec:org2f5c6af}
 Eliminiert man aus einer Grammatik \(G\)
 \begin{enumerate}
 \item alle nicht erzeugenden Symbole, mit Resultat \(G_1\), und
@@ -630,31 +630,31 @@ Eliminiert man aus einer Grammatik \(G\)
 dann enthält \(G_2\) nur noch nützliche Symbole und \(L(G_2) = L(G)\).
 
 \subsubsection{Satz 4.37}
-\label{sec:org7ef5ef0}
+\label{sec:orgb42b9b2}
 Die Menge der erzeugenden Symbole einer CFG sind berechenbar
 \subsubsection{Satz 4.38}
-\label{sec:orgbd1321b}
+\label{sec:org77dd461}
 Für eine CFG ist entscheidbar, ob \(L(G) = \emptyset\)
 \subsubsection{Satz 4.40}
-\label{sec:org63e69c7}
+\label{sec:orga1aeeac}
 Die Menge der erreichbaren Symbole einer CFG ist berechenbar.
 
 \subsection{Der Cocke-Younger-Kasami-Algorithmus}
-\label{sec:org5cb18ef}
+\label{sec:org1aec889}
 Der CYK-Algorithmus entscheidet das Wortproblem für kontextfreie Grammatiken in Chomsky-Normalform.
 Eingabe: Grammatik in Chomsky-Normalform,
 \(w = a_1 ... a_n \in \Sigma^*\)
 \subsubsection{Definition 4.42}
-\label{sec:org427ead6}
-V\textsubscript{ij} := \{A \(\in\) V | A \(\rightarrow\)\textsuperscript{*}\textsubscript{G} a\textsubscript{i\ldots{}a}\textsubscript{j}\$ für \(i \geq j\) \\
+\label{sec:org565b92c}
+\(V_{ij} := \{A \in V | A \rightarrow^*_G a_i...a_j\}\) für \(i \geq j\) \\
 Damit gilt: \\
 \(w \in L(G) \iff S \in V_{1n}\)
 \subsubsection{Satz 4.44}
-\label{sec:org9c29fa6}
+\label{sec:org445a455}
 Der CYK-Algorithmus entscheidet das Wortproblem \(w \in L(G)\) für eine fixe CFG G in Chomsky-Normalform in Zeit \(O(|w|^3)\).
 
 \subsubsection{Vorschau}
-\label{sec:orga88137d}
+\label{sec:org48e3088}
 Für CFGs sind folgende Probleme nicht entscheidbar:
 \begin{itemize}
 \item Äquivalenz: \(L(G_1) = L(G_2)\)?
@@ -662,4 +662,116 @@ Für CFGs sind folgende Probleme nicht entscheidbar:
 \item Regularität: \(L(G)\) regulär?
 \item Mehrdeutigkeit: Ist \(G\) mehrdeutig?
 \end{itemize}
+
+\subsection{Kellerautomaten}
+\label{sec:org6344033}
+Ein (nichtdeterministischer) Kellerautomat \\
+\(M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)\) besteht aus \\
+\begin{itemize}
+\item einer endlichen Menge von Zuständen \(Q\),
+\item einem endlichen Eingabealphabet \(\Sigma\),
+\item einem endlichen Kelleralphabet \(\Gamma\),
+\item einem Anfangszustand \(q_0\),
+\item einem untersten Kellerzeichen \(Z_0\),
+\end{itemize}
+einer Übergangsfunktion \(\delta: Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \rightarrow \mathcal{P}_e(Q \times \Gamma^*)\) , \\
+(Hierbei bedeutet \(\mathcal{P}_e\) die Menge aller endlichen Teilmengen)
+\begin{itemize}
+\item einer Menge \(F \subseteq Q\) von Endzuständen.
+\end{itemize}
+\subsubsection{Spezialfälle}
+\label{sec:org6ac225d}
+\begin{itemize}
+\item POP-Operation: \(\alpha = \epsilon\)
+Das oberste kellerzeichen \(Z\) wird entfernt.
+\item PUSH-Operation: \(\alpha = Z'Z\)
+Z′ wird als neues oberstes Kellerzeichen gePUSHt
+\item \(\epsilon\) -Übergang: \(a = \epsilon\)
+Ohne Lesen eines Eingabezeichens.
+\end{itemize}
+\subsubsection{Definition 4.48}
+\label{sec:org5f1bfdf}
+\begin{itemize}
+\item Ein PDA \(M\) \textbf{akzeptiert} \(w \in \Sigma^*\) mit \textbf{Endzustand} gdw \\
+\((q_0, w, Z_0) \rightarrow^*_M (f, \epsilon, \gamma)\) für ein \(f \in F, \gamma \in \Gamma^*\). \\
+
+\(L_F(M) := \{w | \exists f \in F, \gamma \in \Gamma^*. (q_0, w, Z_0) \rightarrow^*_M (f,\epsilon,\gamma)\}\)
+
+\item Ein PDA \(M\) \textbf{akzeptiert} \(w \in \Sigma^*\) \textbf{mit leerem Keller} gdw
+\((q_0, w, Z_0) \rightarrow^*_M (q, \epsilon, \epsilon)\) für ein \(q \in Q\). \\
+
+\(L_\epsilon(M) := \{w | \exists q \in Q. (q_0, w, Z_0) \rightarrow^*_M (q,\epsilon,\epsilon)\}\)
+\end{itemize}
+
+\subsubsection{Satz 4.50 (Endzustand → leerer Keller)}
+\label{sec:orgf7ae9a4}
+Zu jedem PDA \(M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta)\) kann man in linearer \\
+Zeit einen PDA \(M' = (Q', \Sigma, \Gamma', q'_0, Z'_0, \delta′)\) konstruieren mit \\
+\(L_F(M) = L_\epsilon(M')\)
+
+\subsubsection{Satz 4.51 (Leerer Keller → Endzustand)}
+\label{sec:orgb5196ea}
+Zu jedem PDA \(M\) kann man in linearer Zeit einen PDA \(M'\) konstruieren mit \\
+\(L_\epsilon(M) = L_F(M')\)
+
+\subsubsection{Lemma 4.52 (Erweiterungslemma)}
+\label{sec:org44a731f}
+\((q, u, \alpha) \rightarrow^n_M (q', u', \alpha') \implies (q, uv, \alpha \beta) \rightarrow^n_M (q', u'v, \alpha'\beta)\) \\
+Intuitiv: Man kann bei einem kellerautomaten unten beliebig viele elemente hinzufügen weil sie demnach eh nie gelesen werden.
+
+\subsubsection{Zerlegungssatz}
+\label{sec:org1603ade}
+Wenn \((q, w, Z_{1...k}) \rightarrow^n_M (q', \epsilon, \epsilon)\)
+dann gibt es \(u_i, p_i, n_i\), so dass
+\((p_{i−1}, u_i, Z_i) \rightarrow^{n_i}_M (p_i, \epsilon, \epsilon) (i = 1, . . . , k)\)
+und \(w = u_1 . . . u_k, p_0 = q, p_k = q', \sum n_i = n\).
+\begin{center}
+\includegraphics[width=.9\linewidth]{./img/3-kapitel/zerlegungssatz.png}
+\end{center}
+
+\subsubsection{Satz 4.54 (CFG → PDA)}
+\label{sec:orge755796}
+Zu jeder CFG \(G\) kann man einen PDA \(M\) konstruieren, der mit leerem Stack akzeptiert, so dass \(L_\epsilon(M) = L(G)\).
+\subsubsection{Satz 4.57 (PDA → CFG)}
+\label{sec:org4f3356b}
+Zu jedem PDA \(M = (Q, \Sigma, \Gamma, q_0, Z_0, \delta)\), der mit leerem Keller
+akzeptiert, kann man eine CFG \(G\) konstruieren mit \(L(G) = L_\epsilon(M)\).
+\subsubsection{Satz 4.59}
+\label{sec:org6d81a07}
+\textbf{Eine Sprache ist kontextfrei gdw sie von einem Kellerautomaten}
+
+\subsection{Deterministische Kellerautomaten}
+\label{sec:org97707f3}
+\subsubsection{Definition 4.60}
+\label{sec:org1551653}
+Ein PDA heißt deterministisch (DPDA) gdw für alle \(q \in Q, a \in \Sigma, Z \in \Gamma\) \\
+\(|\delta(q, a, Z)| + |\delta(q, \epsilon, Z)| \leq 1\)
+\subsubsection{Definition 4.62}
+\label{sec:org9dd3d70}
+Eine CFL heißt deterministisch (DCFL) gdw sie von einem DPDA
+akzeptiert wird.
+\subsubsection{Fakt 4.63}
+\label{sec:org77bd031}
+Jede reguläre Sprache ist eine DCFL.
+\subsubsection{Lemma 4.65}
+\label{sec:org9f93e3f}
+\(\exists\) DPDA \(M. L = L_\epsilon(M)\) \\
+\(\iff\) \\
+\(\exists\) DPDA \(M. L = L_F(M)\) und \(L\) erfüllt die Präfix Bedingung
+\subsubsection{Satz 4.66}
+\label{sec:org313e139}
+Die Klasse der DCFLs ist unter Komplement abgeschlossen. \\
+(CFLs sind nicht unter Komplement abgeschlossen)
+\subsubsection{Lemma 4.68}
+\label{sec:org9320864}
+Die Klasse der DCFLs ist weder unter Schnitt noch unter
+Vereinigung abgeschlossen. \\
+(CFLs auch nicht)
+\subsubsection{Lemma 4.69}
+\label{sec:org244118b}
+Jede DCFL ist nicht inhärent mehrdeutig, dh sie wird von einer
+nicht-mehrdeutigen Grammatik erzeugt.
+\subsubsection{Satz 4.70}
+\label{sec:org76d8fed}
+Das Wortproblem für DCFLs ist in linearer Zeit lösbar.
 \end{document}
