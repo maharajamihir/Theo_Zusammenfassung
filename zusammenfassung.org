@@ -452,3 +452,10 @@ Für CFGs sind folgende Probleme nicht entscheidbar:
 - Schnittproblem: $L(G_1) \cap L(G_2) = \emptyset$?
 - Regularität: $L(G)$ regulär?
 - Mehrdeutigkeit: Ist $G$ mehrdeutig?
+
+
+
+*** Definition 4.47
+$\rightarrow_M$ is die binäre Relation auf die Menge aller möglichen Konfigurationen:
+$(q,aw,Z\alpha) \rightarrow_M \left\{\begin{array}{ll}(q',w,\beta \alpha) & falls\ (q',\beta)\in \delta (q,a,Z) \\ (q',aw,\beta \alpha) & falls\ (q', \beta)\in \delta (q,\epsilon, Z)\end{array}\right$
+reflexive & transitive Hülle: $\rightarrow_M^*$
