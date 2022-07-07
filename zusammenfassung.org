@@ -540,3 +540,18 @@ Jede DCFL ist nicht inhärent mehrdeutig, dh sie wird von einer
 nicht-mehrdeutigen Grammatik erzeugt.
 *** Satz 4.70
 Das Wortproblem für DCFLs ist in linearer Zeit lösbar.
+
+
+
+* TODO::: evrything till 5.5
+
+
+** 5.5 Postsche Korrespondenzproblem (PCP) (semi-entscheidbar)
+*Gegeben*: 2 Folgen $(x_1, y_1), ..., (x_k, y_k)\text{, wobei } x_i, y_i \in \Sigma^+$
+*TO FIND*: Gibt es eine folge von Indizes $i_1, ..., i_n$ sodass $x_{i_1}, ..., x_{i_n} = y_{i_1}, ..., y_{i_n}$
+$i_1, ..., i_n$ ist die Lösung des Problems.
+
+*** 5.5 Modifiziertes PCP (MPCP)
+wie PCP nur Lösung begint mit $i_1 = 1$ (erste indiz = erste karte)
+
+*** Satz 5.56 MPCP $\leq$ PCP
